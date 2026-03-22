@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puurvijver — Zwem in levend water</title>
+<meta name="description" content="Puurvijver ontwerpt en bouwt ecologische zwemvijvers in Limburg. Zwem zonder chloor, in puur natuur. Vakmanschap meets ecologie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #2d5016;
+  --forest-light: #3a6b1e;
+  --moss: #4a7c3f;
+  --sage: #7a9e6e;
+  --sand: #c8b88a;
+  --cream: #f5f0e8;
+  --water: #5a8f7b;
+  --water-light: #e8f0ec;
+  --stone: #6b6356;
+  --bark: #3d3428;
+  --white: #fefcf8;
+  --text: #2a2520;
+  --text-light: #5c564e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Navigation */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(254,252,248,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(45,80,22,0.08);
+  padding: 0 2rem;
+  transition: all 0.3s ease;
+}
+nav .nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  height: 70px;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 600;
+  color: var(--forest);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.logo span { color: var(--water); }
+nav ul {
+  display: flex; list-style: none; gap: 2rem;
+}
+nav a {
+  color: var(--text); text-decoration: none;
+  font-size: 0.9rem; font-weight: 400;
+  transition: color 0.2s;
+  letter-spacing: 0.02em;
+}
+nav a:hover { color: var(--forest); }
+.nav-cta {
+  background: var(--forest); color: var(--white) !important;
+  padding: 0.5rem 1.2rem; border-radius: 4px;
+  font-weight: 500;
+}
+.nav-cta:hover { background: var(--forest-light) !important; }
+
+/* Hamburger */
+.hamburger { display: none; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--forest); margin: 5px 0; transition: 0.3s; }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  position: relative; overflow: hidden;
+  padding: 6rem 2rem;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(160deg, rgba(26,58,18,0.85) 0%, rgba(45,80,22,0.75) 40%, rgba(58,107,30,0.7) 70%, rgba(74,124,63,0.65) 100%);
+}
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  color: var(--sand);
+  padding: 0.4rem 1.2rem; border-radius: 20px;
+  font-size: 0.8rem; letter-spacing: 0.15em;
+  text-transform: uppercase; margin-bottom: 2rem;
+  border: 1px solid rgba(200,184,138,0.25);
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+.hero h1 em {
+  font-style: italic; color: var(--sand);
+}
+.hero p {
+  font-size: 1.15rem; color: rgba(255,255,255,0.85);
+  max-width: 550px; margin: 0 auto 2.5rem;
+  font-weight: 300;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--sand); color: var(--bark);
+  padding: 0.9rem 2.2rem; border-radius: 4px;
+  text-decoration: none; font-weight: 500;
+  font-size: 0.95rem; letter-spacing: 0.03em;
+  transition: all 0.3s;
+}
+.btn-primary:hover { background: #d4c494; transform: translateY(-1px); }
+.btn-secondary {
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.3); color: var(--white);
+  padding: 0.9rem 2.2rem; border-radius: 4px;
+  text-decoration: none; font-weight: 400;
+  font-size: 0.95rem; margin-left: 1rem;
+  transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+
+/* Sections */
+section { padding: 6rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-size: 0.75rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--moss);
+  margin-bottom: 0.8rem; font-weight: 500;
+}
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--forest); margin-bottom: 1rem;
+}
+.section-subtitle {
+  font-size: 1.05rem; color: var(--text-light);
+  max-width: 600px; margin-bottom: 3rem;
+}
+
+/* Filosofie */
+.filosofie { background: var(--cream); }
+.filosofie-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.filosofie-visual {
+  aspect-ratio: 4/3; border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(45,80,22,0.15);
+}
+.filosofie-text h3 {
+  font-size: 1.6rem; color: var(--forest); margin-bottom: 1rem;
+}
+.filosofie-text p {
+  color: var(--text-light); margin-bottom: 1.5rem;
+}
+.eco-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  margin-top: 2rem;
+}
+.eco-stat {
+  background: var(--white); padding: 1.2rem;
+  border-radius: 6px; border-left: 3px solid var(--moss);
+}
+.eco-stat strong {
+  display: block; font-size: 1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--forest); font-weight: 600;
+}
+.eco-stat span { font-size: 0.85rem; color: var(--text-light); }
+
+/* Aanbod */
+.aanbod-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.aanbod-card {
+  background: var(--white);
+  border: 1px solid rgba(45,80,22,0.08);
+  border-radius: 8px; overflow: hidden;
+  transition: all 0.3s;
+}
+.aanbod-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(45,80,22,0.08); }
+.aanbod-visual {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.aanbod-body { padding: 1.5rem; }
+.aanbod-body h3 {
+  font-size: 1.3rem; color: var(--forest); margin-bottom: 0.5rem;
+}
+.aanbod-body p {
+  font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;
+}
+.aanbod-link {
+  color: var(--moss); text-decoration: none;
+  font-size: 0.85rem; font-weight: 500;
+  display: flex; align-items: center; gap: 0.3rem;
+}
+.aanbod-link:hover { color: var(--forest); }
+
+/* Shop */
+.shop { background: var(--water-light); }
+.shop-categories {
+  display: flex; gap: 0.8rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+}
+.shop-cat {
+  padding: 0.5rem 1.2rem; border-radius: 20px;
+  font-size: 0.85rem; font-weight: 500; cursor: pointer;
+  border: 1px solid var(--moss); color: var(--moss);
+  background: transparent; transition: all 0.2s;
+}
+.shop-cat:hover, .shop-cat.active {
+  background: var(--forest); color: var(--white); border-color: var(--forest);
+}
+.shop-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.shop-card {
+  background: var(--white);
+  border: 1px solid rgba(45,80,22,0.08);
+  border-radius: 8px; overflow: hidden;
+  transition: all 0.3s;
+  position: relative;
+}
+.shop-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(45,80,22,0.08); }
+.shop-card-img {
+  height: 200px; overflow: hidden; position: relative;
+  background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+}
+.shop-card-img .shop-icon {
+  font-size: 3.5rem; opacity: 0.7;
+}
+.shop-card-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.shop-card:hover .shop-card-img img {
+  transform: scale(1.05);
+}
+.shop-badge {
+  position: absolute; top: 0.8rem; left: 0.8rem;
+  background: var(--moss); color: var(--white);
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem; border-radius: 3px;
+  text-transform: uppercase;
+}
+.shop-badge.nieuw { background: var(--water); }
+.shop-badge.populair { background: var(--sand); color: var(--bark); }
+.shop-card-body { padding: 1.2rem; }
+.shop-card-body h4 {
+  font-size: 1.1rem; color: var(--forest); margin-bottom: 0.3rem;
+}
+.shop-card-body .shop-desc {
+  font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.8rem;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.shop-card-footer {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.shop-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600; color: var(--forest);
+}
+.shop-price small {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem; font-weight: 400; color: var(--text-light);
+}
+.btn-shop {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  background: var(--forest); color: var(--white);
+  padding: 0.45rem 1rem; border-radius: 4px;
+  font-size: 0.8rem; font-weight: 500;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-shop:hover { background: var(--forest-light); }
+.shop-cta {
+  text-align: center; margin-top: 3rem;
+  padding-top: 2rem; border-top: 1px solid rgba(45,80,22,0.1);
+}
+.shop-cta p {
+  font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem;
+}
+.shop-features {
+  display: flex; justify-content: center; gap: 2.5rem; margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.shop-feature {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.85rem; color: var(--moss); font-weight: 500;
+}
+.shop-feature .icon { font-size: 1.2rem; }
+
+/* Werkwijze */
+.werkwijze { background: var(--forest); color: var(--white); }
+.werkwijze .section-label { color: var(--sand); }
+.werkwijze .section-title { color: var(--white); }
+.werkwijze .section-subtitle { color: rgba(255,255,255,0.7); }
+.stappen {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.stap {
+  text-align: center; padding: 1.5rem 1rem;
+}
+.stap-nr {
+  display: inline-flex; width: 48px; height: 48px;
+  align-items: center; justify-content: center;
+  border: 1px solid var(--sand); border-radius: 50%;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; color: var(--sand);
+  margin-bottom: 1rem;
+}
+.stap h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.stap p { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+
+/* Verschil */
+.verschil-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid rgba(45,80,22,0.1);
+  border-radius: 8px; overflow: hidden;
+}
+.verschil-col { padding: 2.5rem; }
+.verschil-col.chloor {
+  background: #f0eee8;
+}
+.verschil-col.natuur {
+  background: var(--water-light);
+  border-left: 3px solid var(--moss);
+}
+.verschil-col h3 {
+  font-size: 1.3rem; margin-bottom: 1.5rem;
+}
+.verschil-col.chloor h3 { color: var(--stone); }
+.verschil-col.natuur h3 { color: var(--forest); }
+.verschil-item {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  margin-bottom: 1rem; font-size: 0.9rem;
+}
+.verschil-item .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+
+/* Realisaties */
+.realisaties { background: var(--cream); }
+.real-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.real-card {
+  border-radius: 8px; overflow: hidden;
+  background: var(--white);
+  transition: all 0.3s;
+}
+.real-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(45,80,22,0.08); }
+.real-img {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+.real-body { padding: 1.2rem; }
+.real-body h4 { font-size: 1.1rem; color: var(--forest); margin-bottom: 0.3rem; }
+.real-body p { font-size: 0.85rem; color: var(--text-light); }
+
+/* Eco-belofte */
+.eco-belofte {
+  background: linear-gradient(135deg, var(--water-light), var(--cream));
+  text-align: center;
+}
+.belofte-items {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2rem; margin-top: 3rem;
+}
+.belofte-item {
+  padding: 1.5rem;
+}
+.belofte-icon {
+  width: 64px; height: 64px; margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  background: var(--white);
+  box-shadow: 0 4px 16px rgba(45,80,22,0.08);
+}
+.belofte-item h4 {
+  font-size: 1rem; color: var(--forest); margin-bottom: 0.4rem;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+}
+.belofte-item p { font-size: 0.85rem; color: var(--text-light); }
+
+/* FAQ */
+.faq-list { max-width: 700px; }
+.faq-item {
+  border-bottom: 1px solid rgba(45,80,22,0.1);
+  padding: 1.5rem 0;
+}
+.faq-q {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; color: var(--forest);
+  cursor: pointer; display: flex;
+  justify-content: space-between; align-items: center;
+}
+.faq-q::after { content: '+'; font-size: 1.5rem; color: var(--moss); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 0.9rem; color: var(--text-light);
+}
+.faq-item.open .faq-a { max-height: 200px; padding-top: 1rem; }
+.faq-item.open .faq-q::after { content: '−'; }
+
+/* Contact */
+.contact { background: var(--forest); color: var(--white); }
+.contact .section-label { color: var(--sand); }
+.contact .section-title { color: var(--white); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+}
+.contact-info p {
+  color: rgba(255,255,255,0.75); margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.contact-detail {
+  display: flex; align-items: center; gap: 0.8rem;
+  margin-bottom: 1rem; color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
+}
+.contact-detail .icon { font-size: 1.2rem; color: var(--sand); }
+.contact-form input,
+.contact-form textarea {
+  width: 100%; padding: 0.8rem 1rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px; color: var(--white);
+  font-family: 'Inter', sans-serif; font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+.contact-form textarea { height: 120px; resize: vertical; }
+.contact-form button {
+  background: var(--sand); color: var(--bark);
+  padding: 0.8rem 2rem; border: none; border-radius: 4px;
+  font-weight: 500; cursor: pointer; font-size: 0.95rem;
+  transition: all 0.3s;
+}
+.contact-form button:hover { background: #d4c494; }
+
+/* Full-width image band */
+.image-band {
+  height: 400px; overflow: hidden;
+  position: relative;
+}
+.image-band img { width: 100%; height: 100%; object-fit: cover; }
+.image-band-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(45,80,22,0.15) 0%, transparent 40%, transparent 60%, rgba(45,80,22,0.1) 100%);
+}
+
+/* Footer */
+footer {
+  background: var(--bark); color: rgba(255,255,255,0.5);
+  padding: 3rem 2rem; text-align: center;
+  font-size: 0.8rem;
+}
+footer a { color: var(--sand); text-decoration: none; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  nav ul { display: none; }
+  .hamburger { display: block; }
+  .filosofie-grid,
+  .verschil-grid,
+  .contact-grid { grid-template-columns: 1fr; }
+  .aanbod-grid, .real-grid { grid-template-columns: 1fr 1fr; }
+  .shop-grid { grid-template-columns: 1fr 1fr; }
+  .stappen { grid-template-columns: 1fr 1fr; }
+  .belofte-items { grid-template-columns: 1fr 1fr; }
+  .image-band { height: 250px; }
+}
+@media (max-width: 600px) {
+  .aanbod-grid, .real-grid, .stappen, .belofte-items { grid-template-columns: 1fr; }
+  .shop-grid { grid-template-columns: 1fr; }
+  .btn-secondary { margin-left: 0; margin-top: 0.8rem; display: block; }
+  .image-band { height: 200px; }
+  .shop-features { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">puur<span>vijver</span></a>
+    <ul>
+      <li><a href="#filosofie">Filosofie</a></li>
+      <li><a href="#aanbod">Aanbod</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#werkwijze">Werkwijze</a></li>
+      <li><a href="#realisaties">Realisaties</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="this.classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1590317968127-db05dcfbef4c?w=1800&q=80&auto=format&fit=crop" alt="Tuinvijver met waterlelies en treurwilg" loading="eager">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Ecologische zwemvijvers — Limburg</div>
+    <h1>Zwem in <em>levend water</em></h1>
+    <p>Geen chloor. Geen chemie. Alleen natuur die voor u werkt. Puurvijver ontwerpt en bouwt ecologische zwemvijvers die zichzelf zuiveren.</p>
+    <a href="#contact" class="btn-primary">Gratis tuinbezoek aanvragen</a>
+    <a href="#realisaties" class="btn-secondary">Bekijk realisaties</a>
+  </div>
+</section>
+
+<!-- Filosofie -->
+<section class="filosofie" id="filosofie">
+  <div class="container">
+    <div class="filosofie-grid">
+      <div class="filosofie-visual">
+        <img src="https://images.unsplash.com/photo-1606481473321-9caa0ef7cbad?w=800&q=80&auto=format&fit=crop" alt="Grote tuinvijver met waterlelies" loading="lazy">
+      </div>
+      <div class="filosofie-text">
+        <p class="section-label">Onze filosofie</p>
+        <h3>Water dat leeft, zuivert zichzelf</h3>
+        <p>Een zwemvijver is geen zwembad met een groen randje. Het is een levend ecosysteem — planten, micro-organismen en mineralen die samenwerken om kristalhelder water te maken. Zonder pompen die chemicaliën doseren. Zonder rode ogen na het zwemmen.</p>
+        <p>Wij geloven dat de natuur de beste ingenieur is. Onze taak is haar de juiste omstandigheden geven.</p>
+        <div class="eco-stats">
+          <div class="eco-stat">
+            <strong>0 gram</strong>
+            <span>chloor per jaar</span>
+          </div>
+          <div class="eco-stat">
+            <strong>-70%</strong>
+            <span>energieverbruik vs. klassiek</span>
+          </div>
+          <div class="eco-stat">
+            <strong>25+ jaar</strong>
+            <span>levensduur</span>
+          </div>
+          <div class="eco-stat">
+            <strong>100%</strong>
+            <span>biodiversiteit-positief</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image Band -->
+<div class="image-band">
+  <img src="https://images.unsplash.com/photo-1595871177925-2d53e66c7199?w=1600&q=80&auto=format&fit=crop" alt="Houten deck naast ecologische vijver bij zonsondergang" loading="lazy">
+  <div class="image-band-overlay"></div>
+</div>
+
+<!-- Aanbod -->
+<section id="aanbod">
+  <div class="container">
+    <p class="section-label">Ons aanbod</p>
+    <h2 class="section-title">Elk project is uniek, net als uw tuin</h2>
+    <p class="section-subtitle">Van intiem plonsvijvertje tot architecturaal zwemlandschap — altijd 100% ecologisch, altijd op maat.</p>
+    <div class="aanbod-grid">
+      <div class="aanbod-card">
+        <div class="aanbod-visual">
+          <img src="https://images.unsplash.com/photo-1630175322777-90711986feab?w=600&q=80&auto=format&fit=crop" alt="Oeverzone met riet en waterplanten" loading="lazy">
+        </div>
+        <div class="aanbod-body">
+          <h3>Zwemvijver op maat</h3>
+          <p>Volledig ecologisch zwemwater, ontworpen rond uw tuin en wensen. Van 25m² tot 200m²+. Biologische filtering via plantenzone.</p>
+          <a href="#contact" class="aanbod-link">Meer info →</a>
+        </div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-visual">
+          <img src="https://images.unsplash.com/photo-1595871177925-2d53e66c7199?w=600&q=80&auto=format&fit=crop" alt="Strakke vijver met houten deck" loading="lazy">
+        </div>
+        <div class="aanbod-body">
+          <h3>Natuurlijke pool</h3>
+          <p>Het beste van twee werelden: de strakke lijnen van een zwembad met de zuivering van de natuur. Ideaal bij moderne architectuur.</p>
+          <a href="#contact" class="aanbod-link">Meer info →</a>
+        </div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-visual">
+          <img src="https://images.unsplash.com/photo-1693494356986-38282764db47?w=600&q=80&auto=format&fit=crop" alt="Waterlelies in ecologische vijver" loading="lazy">
+        </div>
+        <div class="aanbod-body">
+          <h3>Ombouw chloor → natuur</h3>
+          <p>Uw bestaande zwembad omvormen tot een ecologisch zwemwater? Het kan — en het is goedkoper dan u denkt.</p>
+          <a href="#contact" class="aanbod-link">Meer info →</a>
+        </div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-visual">
+          <img src="https://images.unsplash.com/photo-1590317968127-db05dcfbef4c?w=600&q=80&auto=format&fit=crop" alt="Tuinvijver met waterlelies geïntegreerd in landschap" loading="lazy">
+        </div>
+        <div class="aanbod-body">
+          <h3>Tuinintegratie</h3>
+          <p>In samenwerking met tuinarchitecten: uw zwemvijver als centraal element van een doordacht tuinontwerp.</p>
+          <a href="#contact" class="aanbod-link">Meer info →</a>
+        </div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-visual">
+          <img src="https://images.unsplash.com/photo-1631168123293-caf6c1b1365f?w=600&q=80&auto=format&fit=crop" alt="Waterlelie in ecologische vijver" loading="lazy">
+        </div>
+        <div class="aanbod-body">
+          <h3>Onderhoud & seizoensbegeleiding</h3>
+          <p>Jaarlijks onderhoudsprogramma zodat uw vijver elk seizoen optimaal functioneert. Inclusief waterkwaliteitscontrole.</p>
+          <a href="#contact" class="aanbod-link">Meer info →</a>
+        </div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-visual">
+          <img src="https://images.unsplash.com/photo-1710715623810-41e71143ca32?w=600&q=80&auto=format&fit=crop" alt="Waterlelies en blauw vijverwater" loading="lazy">
+        </div>
+        <div class="aanbod-body">
+          <h3>Wellness & sauna bij de vijver</h3>
+          <p>Combineer uw zwemvijver met een buitensauna, hottub of dompelbad. Complete wellness-ervaring in eigen tuin.</p>
+          <a href="#contact" class="aanbod-link">Meer info →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Shop -->
+<section class="shop" id="shop">
+  <div class="container">
+    <p class="section-label">Webshop</p>
+    <h2 class="section-title">Alles voor uw vijver, in één shop</h2>
+    <p class="section-subtitle">Van waterplanten tot complete onderhoudspakketten — direct besteld, vakkundig geleverd.</p>
+    <div class="shop-categories">
+      <button class="shop-cat active" onclick="filterShop('all')">Alles</button>
+      <button class="shop-cat" onclick="filterShop('planten')">Waterplanten</button>
+      <button class="shop-cat" onclick="filterShop('onderhoud')">Onderhoud</button>
+      <button class="shop-cat" onclick="filterShop('techniek')">Techniek</button>
+      <button class="shop-cat" onclick="filterShop('accessoires')">Accessoires</button>
+      <button class="shop-cat" onclick="filterShop('pakketten')">Pakketten</button>
+      <button class="shop-cat" onclick="filterShop('cadeaubon')">Cadeaubonnen</button>
+    </div>
+    <div class="shop-grid">
+      <!-- Waterplanten -->
+      <div class="shop-card" data-cat="planten">
+        <div class="shop-card-img">
+          <span class="shop-badge populair">Populair</span>
+          <img src="https://images.unsplash.com/photo-1624438607474-39ecfd4fa9f9?w=600&q=80&auto=format&fit=crop" alt="Waterplanten starterspakket" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>Starterspakket waterplanten</h4>
+          <p class="shop-desc">12 inheemse soorten voor de filterzone. Voldoende voor 10-15m² plantenzone.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€189</span>
+            <button class="btn-shop">In winkelmand 🛒</button>
+          </div>
+        </div>
+      </div>
+      <div class="shop-card" data-cat="planten">
+        <div class="shop-card-img">
+          <img src="https://images.unsplash.com/photo-1626202713588-36c13d8b4c9a?w=600&q=80&auto=format&fit=crop" alt="Waterlelies collectie" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>Waterlelies — collectie</h4>
+          <p class="shop-desc">5 winterharde waterlelies in diverse kleuren. Hardy Nymphaea, geschikt tot zone 4.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€79</span>
+            <button class="btn-shop">In winkelmand 🛒</button>
+          </div>
+        </div>
+      </div>
+      <!-- Onderhoud -->
+      <div class="shop-card" data-cat="onderhoud">
+        <div class="shop-card-img">
+          <span class="shop-badge nieuw">Nieuw</span>
+          <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&q=80&auto=format&fit=crop" alt="Watertestkit Pro" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>Watertestkit Pro</h4>
+          <p class="shop-desc">Complete testkit: pH, KH, GH, nitriet, nitraat, fosfaat. 60 metingen per kit.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€49</span>
+            <button class="btn-shop">In winkelmand 🛒</button>
+          </div>
+        </div>
+      </div>
+      <div class="shop-card" data-cat="onderhoud">
+        <div class="shop-card-img">
+          <img src="https://images.unsplash.com/photo-1602612195287-95906679460f?w=600&q=80&auto=format&fit=crop" alt="Bladnet en schepnet set" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>Bladnet &amp; schepnet set</h4>
+          <p class="shop-desc">Telescopisch bladnet (3m) + fijnmazig schepnet. RVS frame, UV-bestendig net.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€65</span>
+            <button class="btn-shop">In winkelmand 🛒</button>
+          </div>
+        </div>
+      </div>
+      <!-- Techniek -->
+      <div class="shop-card" data-cat="techniek">
+        <div class="shop-card-img">
+          <img src="https://images.unsplash.com/photo-1591806182241-a6e4bdd59735?w=600&q=80&auto=format&fit=crop" alt="Circulatiepomp ECO-200" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>Circulatiepomp ECO-200</h4>
+          <p class="shop-desc">Energiezuinige vijverpomp 12.000 l/u. Slechts 95W verbruik. 3 jaar garantie.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€349</span>
+            <button class="btn-shop">In winkelmand 🛒</button>
+          </div>
+        </div>
+      </div>
+      <div class="shop-card" data-cat="techniek">
+        <div class="shop-card-img">
+          <img src="https://images.unsplash.com/photo-1586634464373-1692ca6576d0?w=600&q=80&auto=format&fit=crop" alt="UV-C filter 36W" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>UV-C filter 36W</h4>
+          <p class="shop-desc">Biologisch veilige UV-C nabehandeling. Tegen groene algen en zweefalgen. Tot 30m³.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€219</span>
+            <button class="btn-shop">In winkelmand 🛒</button>
+          </div>
+        </div>
+      </div>
+      <!-- Accessoires -->
+      <div class="shop-card" data-cat="accessoires">
+        <div class="shop-card-img">
+          <img src="https://images.unsplash.com/photo-1576912942348-f88585c9dbc6?w=600&q=80&auto=format&fit=crop" alt="Onderwaterverlichting LED" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>Onderwaterverlichting LED</h4>
+          <p class="shop-desc">Set van 3 warm-witte LED spots (IP68). Inclusief transformator en 10m kabel.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€159</span>
+            <button class="btn-shop">In winkelmand 🛒</button>
+          </div>
+        </div>
+      </div>
+      <div class="shop-card" data-cat="accessoires">
+        <div class="shop-card-img">
+          <img src="https://images.unsplash.com/photo-1633522934086-1dc40450dd9f?w=600&q=80&auto=format&fit=crop" alt="RVS instaptrap" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>RVS instaptrap</h4>
+          <p class="shop-desc">3-treden inlooptrap in geborsteld RVS 316. Geschikt voor folie- en betonvijvers.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€489</span>
+            <button class="btn-shop">In winkelmand 🛒</button>
+          </div>
+        </div>
+      </div>
+      <!-- Pakketten -->
+      <div class="shop-card" data-cat="pakketten">
+        <div class="shop-card-img">
+          <span class="shop-badge populair">Bestseller</span>
+          <img src="https://images.unsplash.com/photo-1558969330-ce91b84b1348?w=600&q=80&auto=format&fit=crop" alt="Jaarabonnement onderhoud" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>Jaarabonnement onderhoud</h4>
+          <p class="shop-desc">4 seizoensbezoeken + waterkwaliteitsrapport + telefonische support. Zorgeloos genieten.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€695 <small>/jaar</small></span>
+            <button class="btn-shop">Bestellen 🛒</button>
+          </div>
+        </div>
+      </div>
+      <div class="shop-card" data-cat="pakketten">
+        <div class="shop-card-img">
+          <img src="https://images.unsplash.com/photo-1647808713955-64685f28f728?w=600&q=80&auto=format&fit=crop" alt="Lente-startpakket" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>Lente-startpakket</h4>
+          <p class="shop-desc">Alles om uw vijver na de winter op te starten: bacteriën, meststof waterplanten, testkit, schepnet.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€129</span>
+            <button class="btn-shop">In winkelmand 🛒</button>
+          </div>
+        </div>
+      </div>
+      <!-- Cadeaubon -->
+      <div class="shop-card" data-cat="cadeaubon">
+        <div class="shop-card-img">
+          <img src="https://images.unsplash.com/photo-1605037462069-40817abd6d1e?w=600&q=80&auto=format&fit=crop" alt="Cadeaubon Puurvijver" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>Cadeaubon Puurvijver</h4>
+          <p class="shop-desc">Geef het cadeau van natuur. Vrij te besteden op producten, pakketten of diensten.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">vanaf €50</span>
+            <button class="btn-shop">Kiezen 🛒</button>
+          </div>
+        </div>
+      </div>
+      <div class="shop-card" data-cat="pakketten">
+        <div class="shop-card-img">
+          <span class="shop-badge nieuw">Nieuw</span>
+          <img src="https://images.unsplash.com/photo-1642448900822-b145b28d7d42?w=600&q=80&auto=format&fit=crop" alt="Winterklaar-pakket" loading="lazy">
+        </div>
+        <div class="shop-card-body">
+          <h4>Winterklaar-pakket</h4>
+          <p class="shop-desc">IJsvrijhouder, bladnet afdekking, bacteriestarter najaar. Uw vijver veilig de winter door.</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">€89</span>
+            <button class="btn-shop">In winkelmand 🛒</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shop-cta">
+      <p>Twijfelt u welk product bij uw vijver past? Wij adviseren u graag — vrijblijvend.</p>
+      <a href="#contact" class="btn-primary">Adviesgesprek aanvragen</a>
+      <div class="shop-features">
+        <span class="shop-feature"><span class="icon">🚚</span> Gratis verzending vanaf €99</span>
+        <span class="shop-feature"><span class="icon">↩️</span> 30 dagen retourrecht</span>
+        <span class="shop-feature"><span class="icon">📞</span> Persoonlijk advies</span>
+        <span class="shop-feature"><span class="icon">🔒</span> Veilig betalen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Werkwijze -->
+<section class="werkwijze" id="werkwijze">
+  <div class="container">
+    <p class="section-label">Werkwijze</p>
+    <h2 class="section-title">Van droom naar levend water</h2>
+    <p class="section-subtitle">Acht stappen, volledig begeleid. U geniet, wij regelen de rest.</p>
+    <div class="stappen">
+      <div class="stap">
+        <div class="stap-nr">1</div>
+        <h4>Kennismaking</h4>
+        <p>Gratis tuinbezoek. We luisteren naar uw wensen en bekijken de mogelijkheden.</p>
+      </div>
+      <div class="stap">
+        <div class="stap-nr">2</div>
+        <h4>Ontwerp</h4>
+        <p>3D-visualisatie van uw zwemvijver, volledig geïntegreerd in uw tuin.</p>
+      </div>
+      <div class="stap">
+        <div class="stap-nr">3</div>
+        <h4>Offerte</h4>
+        <p>Transparante prijsopbouw. Geen verrassingen achteraf. Offerte 45-60 dagen geldig.</p>
+      </div>
+      <div class="stap">
+        <div class="stap-nr">4</div>
+        <h4>Planning</h4>
+        <p>Startdatum, fasering en afstemming met uw tuinaannemer.</p>
+      </div>
+      <div class="stap">
+        <div class="stap-nr">5</div>
+        <h4>Grondwerk</h4>
+        <p>Uitgraving, waterdichting en aanleg van de biologische filterzone.</p>
+      </div>
+      <div class="stap">
+        <div class="stap-nr">6</div>
+        <h4>Beplanting</h4>
+        <p>Selectie en plaatsing van inheemse waterplanten voor optimale filtering.</p>
+      </div>
+      <div class="stap">
+        <div class="stap-nr">7</div>
+        <h4>Oplevering</h4>
+        <p>Uw eerste duik in puur, levend water. Inclusief volledige gebruiksuitleg.</p>
+      </div>
+      <div class="stap">
+        <div class="stap-nr">8</div>
+        <h4>Nazorg</h4>
+        <p>Seizoensgebonden onderhoud en waterkwaliteitscontrole. We blijven dichtbij.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Verschil -->
+<section id="verschil">
+  <div class="container">
+    <p class="section-label">Waarom natuur</p>
+    <h2 class="section-title">Het verschil voelen</h2>
+    <p class="section-subtitle">Waarom steeds meer tuineigenaars kiezen voor een zwemvijver in plaats van een klassiek zwembad.</p>
+    <div class="verschil-grid">
+      <div class="verschil-col chloor">
+        <h3>Klassiek chloor-zwembad</h3>
+        <div class="verschil-item"><span class="icon">⚗️</span> Chemische waterbehandeling nodig</div>
+        <div class="verschil-item"><span class="icon">👁️</span> Rode ogen, droge huid, verkleurd haar</div>
+        <div class="verschil-item"><span class="icon">💡</span> Hoog energieverbruik (pomp + verwarming)</div>
+        <div class="verschil-item"><span class="icon">🪣</span> Regelmatig water verversen</div>
+        <div class="verschil-item"><span class="icon">❄️</span> Afdekken en winterklaar maken</div>
+        <div class="verschil-item"><span class="icon">📉</span> Waarde daalt na 15 jaar</div>
+        <div class="verschil-item"><span class="icon">🏗️</span> Ziet er 's winters verlaten uit</div>
+      </div>
+      <div class="verschil-col natuur">
+        <h3>Ecologische zwemvijver</h3>
+        <div class="verschil-item"><span class="icon">🌿</span> Planten zuiveren het water biologisch</div>
+        <div class="verschil-item"><span class="icon">✨</span> Zacht, huidvriendelijk water</div>
+        <div class="verschil-item"><span class="icon">⚡</span> 70% lager energieverbruik</div>
+        <div class="verschil-item"><span class="icon">♻️</span> Gesloten waterkringloop</div>
+        <div class="verschil-item"><span class="icon">🦋</span> Het hele jaar een levend tuinelement</div>
+        <div class="verschil-item"><span class="icon">📈</span> Verhoogt de vastgoedwaarde blijvend</div>
+        <div class="verschil-item"><span class="icon">🐸</span> Biodiversiteit: libellen, kikkers, vogels</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image Band 2 -->
+<div class="image-band">
+  <img src="https://images.unsplash.com/photo-1532628249276-f665f6e9b656?w=1600&q=80&auto=format&fit=crop" alt="Witte waterlelie in natuurlijke vijver" loading="lazy">
+  <div class="image-band-overlay"></div>
+</div>
+
+<!-- Realisaties -->
+<section class="realisaties" id="realisaties">
+  <div class="container">
+    <p class="section-label">Realisaties</p>
+    <h2 class="section-title">Onze vijvers vertellen het verhaal</h2>
+    <p class="section-subtitle">Elke tuin is anders. Elke vijver is uniek. Hier zijn enkele van onze realisaties in Limburg.</p>
+    <div class="real-grid">
+      <div class="real-card">
+        <div class="real-img">
+          <img src="https://images.unsplash.com/photo-1606481473321-9caa0ef7cbad?w=600&q=80&auto=format&fit=crop" alt="Villa met zwemvijver in Hasselt" loading="lazy">
+        </div>
+        <div class="real-body">
+          <h4>Villa met zwemvijver — Hasselt</h4>
+          <p>85m² zwemzone, geïntegreerd in bestaande tuin. Natuurlijke oever met siergrassen.</p>
+        </div>
+      </div>
+      <div class="real-card">
+        <div class="real-img">
+          <img src="https://images.unsplash.com/photo-1630175322777-90711986feab?w=600&q=80&auto=format&fit=crop" alt="Natuurlijke pool met oeverplanten in Genk" loading="lazy">
+        </div>
+        <div class="real-body">
+          <h4>Natuurlijke pool — Genk</h4>
+          <p>Strakke lijnen, biologische filtering. Modern design meets ecologie.</p>
+        </div>
+      </div>
+      <div class="real-card">
+        <div class="real-img">
+          <img src="https://images.unsplash.com/photo-1710715623810-41e71143ca32?w=600&q=80&auto=format&fit=crop" alt="Omgebouwde vijver met natuurlijke oever in Tongeren" loading="lazy">
+        </div>
+        <div class="real-body">
+          <h4>Ombouw chloor → natuur — Tongeren</h4>
+          <p>Bestaand zwembad omgevormd tot ecologisch zwemwater. Inclusief houten terras.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Eco-belofte -->
+<section class="eco-belofte" id="belofte">
+  <div class="container">
+    <p class="section-label">Onze belofte</p>
+    <h2 class="section-title">Vier pijlers van Puurvijver</h2>
+    <div class="belofte-items">
+      <div class="belofte-item">
+        <div class="belofte-icon">🌱</div>
+        <h4>100% ecologisch</h4>
+        <p>Geen chloor, geen chemie, geen compromissen. Alleen natuurlijke zuivering.</p>
+      </div>
+      <div class="belofte-item">
+        <div class="belofte-icon">🤝</div>
+        <h4>Lokaal vakmanschap</h4>
+        <p>Limburgse vakmensen met jarenlange ervaring in zwemwater en tuinintegratie.</p>
+      </div>
+      <div class="belofte-item">
+        <div class="belofte-icon">📐</div>
+        <h4>Op maat ontworpen</h4>
+        <p>Elk project start met een tuinbezoek. Geen standaardoplossingen, altijd maatwerk.</p>
+      </div>
+      <div class="belofte-item">
+        <div class="belofte-icon">🔧</div>
+        <h4>Levenslange nazorg</h4>
+        <p>Onderhoudsprogramma, seizoensbegeleiding en waterkwaliteitscontrole. Altijd bereikbaar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <p class="section-label">Veelgestelde vragen</p>
+    <h2 class="section-title">Alles wat u wilt weten</h2>
+    <div class="faq-list">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Kan ik het hele jaar zwemmen in een zwemvijver?</div>
+        <div class="faq-a">Het zwemseizoen loopt van mei tot oktober, afhankelijk van het weer. De watertemperatuur bereikt 22-26°C in de zomer. In de winter is de vijver een prachtig tuinelement met ijs en winterse sfeer. Een optionele warmtepomp kan het seizoen verlengen.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Hoe groot moet mijn tuin zijn?</div>
+        <div class="faq-a">Minimaal 40-50m² totaaloppervlakte (zwemzone + plantenzone). De plantenzone is circa 30-50% van het totaal. Kleinere vijvers zijn mogelijk maar hebben meer technische ondersteuning nodig.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Wat kost een zwemvijver?</div>
+        <div class="faq-a">Richtprijzen starten vanaf €35.000 voor een compacte vijver (25-30m²) tot €80.000-150.000+ voor grotere projecten met landschapsintegratie. Elke offerte is op maat. Een gratis tuinbezoek geeft u een realistisch beeld.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Heb ik een vergunning nodig voor een zwemvijver?</div>
+        <div class="faq-a">Ja, in de meeste gevallen wel. Volgens VLAREM II vereist een zwemvijver met waterdiepte >30cm een stedenbouwkundige vergunning. Wij begeleiden het volledige vergunningstraject en nemen contact op met uw gemeente. De doorlooptijd bedraagt gemiddeld 4-8 weken. Bij een ombouw van bestaand zwembad kan een melding volstaan — dit hangt af van uw gemeente.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is het water echt helder zonder chemie?</div>
+        <div class="faq-a">Ja. De plantenzone en het substraat vormen een biologisch filter dat het water kristalhelder houdt. Na de inloopperiode (6-8 weken) is het water helderder dan in een gemiddeld chloor-zwembad. Regelmatige waterkwaliteitstesten bevestigen dit.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Hoeveel onderhoud vergt een zwemvijver?</div>
+        <div class="faq-a">Minder dan een klassiek zwembad. Geen chemie bijvullen, geen pH-meting. Wel: bladeren verwijderen in de herfst, planten snoeien in het voorjaar, en de filterzone jaarlijks controleren. Ons onderhoudsprogramma neemt dit volledig over.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Kan mijn bestaande zwembad omgebouwd worden?</div>
+        <div class="faq-a">In veel gevallen wel. De bestaande kuip kan dienen als basis. We voegen een biologische filterzone toe en vervangen de chemische installatie door een natuurlijk systeem. Besparing: 30-50% t.o.v. een volledig nieuwe vijver.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">Laat de natuur het werk doen</h2>
+        <p class="contact-info">Benieuwd wat een zwemvijver in uw tuin zou betekenen? Vraag een gratis, vrijblijvend tuinbezoek aan. Wij komen langs, luisteren en schetsen de mogelijkheden.</p>
+        <div class="contact-detail"><span class="icon">📍</span> Borloweg 26, 3800 Sint-Truiden</div>
+        <div class="contact-detail"><span class="icon">📞</span> 0485 94 45 10</div>
+        <div class="contact-detail"><span class="icon">✉️</span> info@puurvijver.be</div>
+        <div style="margin-top: 2rem; padding: 1.2rem; background: rgba(255,255,255,0.06); border-radius: 6px; border-left: 3px solid var(--sand);">
+          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin: 0;">
+            Puurvijver is een merk van Relaxani BV — specialist in zwembaden en wellness sinds 2015. Dezelfde vakkennis, met een pure focus op ecologie.
+          </p>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form" onsubmit="event.preventDefault()">
+          <input type="text" placeholder="Uw naam" required>
+          <input type="email" placeholder="E-mailadres" required>
+          <input type="tel" placeholder="Telefoonnummer">
+          <input type="text" placeholder="Gemeente + geschatte tuingrootte">
+          <textarea placeholder="Vertel ons over uw project en wensen..."></textarea>
+          <button type="submit">Gratis tuinbezoek aanvragen</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Puurvijver — Een merk van Relaxani BV — Borloweg 26, 3800 Sint-Truiden</p>
+  <p style="margin-top: 0.5rem;">
+    <a href="#filosofie">Filosofie</a> · <a href="#aanbod">Aanbod</a> · <a href="#shop">Shop</a> · <a href="#werkwijze">Werkwijze</a> · <a href="#realisaties">Realisaties</a> · <a href="#contact">Contact</a>
+  </p>
+</footer>
+
+<script>
+function filterShop(cat) {
+  document.querySelectorAll('.shop-cat').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.shop-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
