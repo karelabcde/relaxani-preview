@@ -219,6 +219,25 @@ body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--
   transform: translateY(-2px);
   box-shadow: 0 6px 28px rgba(201,168,76,0.4);
 }
+.btn-email {
+  background: linear-gradient(135deg, var(--accent), #1580ad);
+  color: var(--white);
+  padding: 16px 48px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(27,107,147,0.3);
+  margin-left: 16px;
+}
+.btn-email:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(27,107,147,0.4);
+}
+.submit-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
 .submit-note {
   font-size: 12px;
   color: var(--gray);
@@ -866,8 +885,11 @@ body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--
 
 <!-- SUBMIT -->
 <div class="submit-section">
-  <button class="btn-submit" onclick="exportData()">Antwoorden opslaan als bestand</button>
-  <p class="submit-note">Uw antwoorden worden lokaal opgeslagen. Geen data wordt verzonden naar een server.</p>
+  <div class="submit-buttons">
+    <button class="btn-submit" onclick="exportData()">Opslaan als bestand</button>
+    <button class="btn-email" onclick="sendByEmail()">Verstuur per e-mail</button>
+  </div>
+  <p class="submit-note">Uw antwoorden worden lokaal opgeslagen. Bij "Verstuur per e-mail" worden ze naar Dr. Anseeuw gestuurd.</p>
 </div>
 
 <!-- FOOTER -->
@@ -965,6 +987,46 @@ function exportData() {
   a.click();
   URL.revokeObjectURL(url);
   showSave('Bestand gedownload!');
+}
+
+// ── Send by email via mailto ──
+function sendByEmail() {
+  const data = {};
+  document.querySelectorAll('[data-q]').forEach(f => {
+    const label = f.closest('.field')?.querySelector('label')?.textContent || f.dataset.q;
+    if (f.value && f.value.trim()) {
+      data[label.trim()] = f.value.trim();
+    }
+  });
+
+  if (Object.keys(data).length === 0) {
+    alert('Vul eerst enkele vragen in voordat u verstuurt.');
+    return;
+  }
+
+  let body = 'Antwoorden Vragenlijst Relaxani BV\n';
+  body += 'Datum: ' + new Date().toLocaleDateString('nl-BE') + '\n\n';
+  Object.keys(data).forEach(key => {
+    body += '--- ' + key + ' ---\n' + data[key] + '\n\n';
+  });
+
+  const subject = encodeURIComponent('Vragenlijst Relaxani — Antwoorden ' + new Date().toLocaleDateString('nl-BE'));
+  const mailBody = encodeURIComponent(body);
+  const mailto = 'mailto:info@dokteranseeuw.be?subject=' + subject + '&body=' + mailBody;
+
+  // mailto has ~2000 char limit in some browsers, fallback to download
+  if (mailto.length > 1900) {
+    // Try mailto anyway, but also offer download
+    window.location.href = mailto;
+    setTimeout(() => {
+      if (confirm('Als uw e-mailprogramma niet opende (te veel tekst), wilt u het bestand downloaden om als bijlage te versturen?')) {
+        exportData();
+      }
+    }, 1500);
+  } else {
+    window.location.href = mailto;
+  }
+  showSave('E-mail geopend!');
 }
 
 // ── Save indicator ──
