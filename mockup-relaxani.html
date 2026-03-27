@@ -161,11 +161,90 @@ img{max-width:100%;display:block}
 .pool-header-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--primary),var(--accent))}
 .pool-header-content{position:relative;z-index:2;color:var(--white)}
 .pool-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
-.stat-card{background:var(--white);border-radius:16px;padding:24px;text-align:center;box-shadow:var(--shadow)}
+.stat-card{background:var(--white);border-radius:16px;padding:24px;text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .stat-card .stat-icon{font-size:28px;margin-bottom:10px}
 .stat-card .stat-value{font-size:30px;font-weight:800;color:var(--primary)}
 .stat-card .stat-label{font-size:12px;color:var(--gray);margin-top:4px;letter-spacing:.5px}
 .status-ok{color:var(--green)}.status-warn{color:var(--orange)}.status-bad{color:var(--red)}
+.stat-card .stat-sub{font-size:10px;color:var(--gray);margin-top:2px}
+.stat-card .stat-trend{font-size:10px;font-weight:600;margin-top:4px}
+
+/* Pool Hero Image */
+.pool-hero-img{position:relative;border-radius:16px;overflow:hidden;margin-bottom:28px;height:320px}
+.pool-hero-img img{width:100%;height:100%;object-fit:cover}
+.pool-hero-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,43,60,.7) 0%,transparent 50%);display:flex;align-items:flex-end;padding:24px 28px}
+.pool-hero-overlay .pool-name{color:#fff;font-family:'Playfair Display',serif;font-size:22px}
+.pool-hero-overlay .pool-meta{color:rgba(255,255,255,.7);font-size:12px;margin-top:4px}
+.pool-badge-row{position:absolute;top:16px;right:16px;display:flex;gap:8px}
+.pool-badge{background:rgba(255,255,255,.95);padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600;display:flex;align-items:center;gap:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+
+/* Pool Detail Tabs */
+.pool-tabs{display:flex;gap:0;background:var(--white);border-radius:12px;overflow:hidden;border:1px solid #e0e4ea;margin-bottom:24px}
+.pool-tab{flex:1;padding:14px;text-align:center;font-size:12px;font-weight:600;color:var(--gray);cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;letter-spacing:.3px}
+.pool-tab:hover{color:var(--primary);background:var(--light)}
+.pool-tab.active{color:var(--primary);border-bottom-color:var(--gold);background:var(--light)}
+.pool-tab-content{display:none}.pool-tab-content.active{display:block}
+
+/* Domotica */
+.domo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.domo-card{background:var(--white);border-radius:14px;padding:18px;border:1px solid #eef1f5;box-shadow:var(--shadow);display:flex;align-items:center;gap:14px}
+.domo-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.domo-info{flex:1}
+.domo-info .domo-name{font-size:13px;font-weight:600;color:var(--primary)}
+.domo-info .domo-status{font-size:11px;color:var(--gray);margin-top:2px}
+.domo-toggle{width:44px;height:24px;border-radius:12px;position:relative;cursor:pointer;transition:background .3s}
+.domo-toggle.on{background:var(--green)}.domo-toggle.off{background:#ccc}
+.domo-toggle::after{content:'';position:absolute;width:20px;height:20px;background:#fff;border-radius:50%;top:2px;transition:left .3s;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.domo-toggle.on::after{left:22px}.domo-toggle.off::after{left:2px}
+.domo-slider{width:100%;height:6px;border-radius:3px;background:#e0e4ea;appearance:none;-webkit-appearance:none;outline:none;cursor:pointer}
+.domo-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+
+/* Cost Tracker */
+.cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.cost-card{background:var(--white);border-radius:14px;padding:20px;border:1px solid #eef1f5;box-shadow:var(--shadow)}
+.cost-card h4{font-size:13px;font-weight:600;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.cost-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f2f5;font-size:13px}
+.cost-row:last-child{border-bottom:none}
+.cost-row .cost-label{color:var(--gray)}
+.cost-row .cost-val{font-weight:700;color:var(--primary)}
+.eco-score{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-radius:14px;padding:18px;margin-bottom:24px}
+.eco-score .eco-icon{font-size:36px}
+.eco-score .eco-info h4{font-size:14px;color:#1b5e20;margin-bottom:2px}
+.eco-score .eco-info p{font-size:12px;color:#2e7d32}
+
+/* Maintenance Timeline */
+.maint-timeline{position:relative;padding-left:28px;margin-bottom:24px}
+.maint-timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:#e0e4ea}
+.maint-item{position:relative;padding:12px 0 12px 20px;border-bottom:none}
+.maint-item::before{content:'';position:absolute;left:-24px;top:18px;width:12px;height:12px;border-radius:50%;border:2px solid;background:#fff}
+.maint-item.done::before{border-color:var(--green);background:var(--green)}
+.maint-item.upcoming::before{border-color:var(--accent);background:var(--white)}
+.maint-item.overdue::before{border-color:var(--red);background:var(--red)}
+.maint-item .maint-date{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.5px}
+.maint-item .maint-title{font-size:13px;font-weight:600;color:var(--primary);margin-top:2px}
+.maint-item .maint-desc{font-size:12px;color:var(--gray);margin-top:2px}
+
+/* Booking */
+.booking-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.booking-slot{padding:14px;border:2px solid #e0e4ea;border-radius:12px;text-align:center;cursor:pointer;transition:all .2s}
+.booking-slot:hover{border-color:var(--accent);background:rgba(27,107,147,.04)}
+.booking-slot.selected{border-color:var(--gold);background:rgba(201,168,76,.08)}
+.booking-slot .slot-day{font-size:12px;font-weight:700;color:var(--primary)}
+.booking-slot .slot-date{font-size:11px;color:var(--gray)}
+.booking-slot .slot-time{font-size:13px;font-weight:600;color:var(--accent);margin-top:6px}
+
+/* Chart placeholder */
+.mini-chart{height:120px;background:linear-gradient(180deg,rgba(27,107,147,.08),rgba(27,107,147,.02));border-radius:12px;display:flex;align-items:flex-end;padding:0 8px 8px;gap:4px}
+.mini-chart .bar{flex:1;border-radius:4px 4px 0 0;transition:height .5s}
+
+@media(max-width:768px){
+  .domo-grid{grid-template-columns:1fr}
+  .cost-grid{grid-template-columns:1fr}
+  .booking-slots{grid-template-columns:1fr}
+  .pool-stats{grid-template-columns:repeat(2,1fr)}
+  .pool-tabs{flex-wrap:wrap}
+  .pool-tab{flex:none;width:50%}
+}
 
 /* ═══════ DASHBOARD ═══════ */
 .dash-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
@@ -527,42 +606,42 @@ tr:hover{background:var(--light)}
     </div>
     <div class="grid4">
       <div class="product-card">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1585687433687-7d3e tried?w=400&q=80');background:linear-gradient(135deg,#e3f2fd,#bbdefb);display:flex;align-items:center;justify-content:center"><img src="https://m.media-amazon.com/images/I/71Mq7GmMNQL._AC_SL1500_.jpg" alt="pH-min" style="height:140px;object-fit:contain;mix-blend-mode:multiply" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=font-size:64px>🧪</div>'"></div>
+        <div class="product-img" style="background-image:url('https://www.bayrol.com/sites/bayrol/files/2025-04/pH-Minus_Gallery.png');background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#f0f4f8"></div>
         <div class="product-info"><div class="product-cat">Chemicaliën</div><h4>pH-min granulaat (5kg)</h4><div class="product-price">€18,95</div></div>
         <button class="add-cart" onclick="addToCart(this)">In winkelmandje</button>
       </div>
       <div class="product-card">
-        <div class="product-img" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);display:flex;align-items:center;justify-content:center"><img src="https://m.media-amazon.com/images/I/71kfHgW4wjL._AC_SL1500_.jpg" alt="Dolphin E20" style="height:140px;object-fit:contain;mix-blend-mode:multiply" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=font-size:64px>🤖</div>'"></div>
+        <div class="product-img" style="background-image:url('https://brand.maytronics.com/m/18f83998fdf53a37/EP_Large-Dolphin-E20.jpg');background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#f0f4f8"></div>
         <div class="product-info"><div class="product-cat">Robotstofzuiger</div><h4>Dolphin E20 robotreiniger</h4><div class="product-price">€849 <s>€999</s></div></div>
         <button class="add-cart" onclick="addToCart(this)">In winkelmandje</button>
       </div>
       <div class="product-card">
-        <div class="product-img" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);display:flex;align-items:center;justify-content:center"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80" alt="Warmtepomp" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=font-size:64px>🌡️</div>'"></div>
+        <div class="product-img" style="background-image:url('https://madimack.com/hubfs/Featured%20Image/featured-img-inverEco-NA.jpg');background-size:cover;background-position:center"></div>
         <div class="product-info"><div class="product-cat">Verwarming</div><h4>Warmtepomp Inverter 12kW</h4><div class="product-price">€2.495</div></div>
         <button class="add-cart" onclick="addToCart(this)">In winkelmandje</button>
       </div>
       <div class="product-card">
-        <div class="product-img" style="background:linear-gradient(135deg,#e3f2fd,#90caf9);display:flex;align-items:center;justify-content:center"><img src="https://m.media-amazon.com/images/I/81PtNGZW5FL._AC_SL1500_.jpg" alt="Chloortabletten" style="height:140px;object-fit:contain;mix-blend-mode:multiply" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=font-size:64px>🧂</div>'"></div>
+        <div class="product-img" style="background-image:url('https://www.1stdirectpools.com/media/catalog/product/cache/10840511e38e32d6a0c7e5b6f65f382c/2/0/200gm_chlorine_tabs.jpg');background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#f0f4f8"></div>
         <div class="product-info"><div class="product-cat">Chemicaliën</div><h4>Chloortabletten 200g (5kg)</h4><div class="product-price">€34,50</div></div>
         <button class="add-cart" onclick="addToCart(this)">In winkelmandje</button>
       </div>
       <div class="product-card">
-        <div class="product-img" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);display:flex;align-items:center;justify-content:center"><img src="https://m.media-amazon.com/images/I/61eW5tKaVaL._AC_SL1000_.jpg" alt="Testkit" style="height:140px;object-fit:contain;mix-blend-mode:multiply" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=font-size:64px>🎯</div>'"></div>
+        <div class="product-img" style="background-image:url('https://hthpools.com/cdn/shop/files/1278_B_HTHTestKit_opened.jpg?v=1740410535');background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#f0f4f8"></div>
         <div class="product-info"><div class="product-cat">Accessoire</div><h4>Testkit pH/Cl (60 tests)</h4><div class="product-price">€14,95</div></div>
         <button class="add-cart" onclick="addToCart(this)">In winkelmandje</button>
       </div>
       <div class="product-card">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=400&q=80');background-size:cover;background-position:center"></div>
+        <div class="product-img" style="background-image:url('https://mightycovers.com/wp-content/uploads/2025/03/14-Mil-Inground-Solar-Pool-Cover.jpg');background-size:cover;background-position:center"></div>
         <div class="product-info"><div class="product-cat">Afdekking</div><h4>Zomerafdekking op maat</h4><div class="product-price">€289</div></div>
         <button class="add-cart" onclick="addToCart(this)">In winkelmandje</button>
       </div>
       <div class="product-card">
-        <div class="product-img" style="background:linear-gradient(135deg,#e0f2f1,#b2dfdb);display:flex;align-items:center;justify-content:center"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80" alt="LED lamp" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=font-size:64px>💡</div>'"></div>
+        <div class="product-img" style="background-image:url('https://kingsoutdoorlighting.com/cdn/shop/files/PL54New11_1200x1200.png?v=1719862942');background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#f0f4f8"></div>
         <div class="product-info"><div class="product-cat">Accessoire</div><h4>LED onderwaterlamp RGB</h4><div class="product-price">€129 <s>€159</s></div></div>
         <button class="add-cart" onclick="addToCart(this)">In winkelmandje</button>
       </div>
       <div class="product-card">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80');background-size:cover;background-position:center"></div>
+        <div class="product-img" style="background-image:url('https://hthpools.com/cdn/shop/files/91022_B_HTHPOOLCAREKIT_FrontCrnr.jpg?v=1768332594');background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#f0f4f8"></div>
         <div class="product-info"><div class="product-cat">Onderhoudspakket</div><h4>Seizoensopstart pakket</h4><div class="product-price">€149,95</div></div>
         <button class="add-cart" onclick="addToCart(this)">In winkelmandje</button>
       </div>
@@ -599,42 +678,656 @@ tr:hover{background:var(--light)}
 <!-- ═══════════════════════════════════════ -->
 <div class="page" id="page-mypool">
   <div class="section">
+
+    <!-- Pool Header with greeting -->
     <div class="pool-header">
       <div class="pool-header-bg"></div>
-      <div class="pool-header-content">
-        <h2 style="font-family:'Playfair Display',serif;font-size:28px;margin-bottom:6px">My Pool — Klantenportaal</h2>
-        <p style="opacity:.7;font-size:14px">Welkom, Familie Janssens. Uw zwembad draait optimaal.</p>
-      </div>
-    </div>
-
-    <div class="pool-stats">
-      <div class="stat-card"><div class="stat-icon">🌡️</div><div class="stat-value status-ok">28.5°C</div><div class="stat-label">Water temperatuur</div></div>
-      <div class="stat-card"><div class="stat-icon">💧</div><div class="stat-value status-ok">7.2</div><div class="stat-label">pH-waarde</div></div>
-      <div class="stat-card"><div class="stat-icon">🧪</div><div class="stat-value status-ok">1.2 ppm</div><div class="stat-label">Chloor</div></div>
-      <div class="stat-card"><div class="stat-icon">🔋</div><div class="stat-value status-ok">Actief</div><div class="stat-label">Filtratie status</div></div>
-    </div>
-
-    <div class="grid2">
-      <div class="dash-card">
-        <h3>📅 Komende afspraken</h3>
-        <table>
-          <tr><td><strong>15 april 2026</strong></td><td>Seizoensopstart</td><td><span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">Bevestigd</span></td></tr>
-          <tr><td><strong>1 mei 2026</strong></td><td>Wateranalyse</td><td><span class="tag tag-blue" style="background:#e3f2fd;color:#1565c0">Gepland</span></td></tr>
-          <tr><td><strong>15 okt 2026</strong></td><td>Winterklaar maken</td><td><span class="tag" style="background:#f5f5f5;color:#666">Nog te plannen</span></td></tr>
-        </table>
-      </div>
-      <div class="dash-card">
-        <h3>📋 Uw onderhoudscontract</h3>
-        <p style="font-size:13px;color:#666;margin-bottom:12px">Premium Onderhoudscontract — geldig tot 31/12/2026</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ Seizoensopstart</span>
-          <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ Wateranalyses (4×)</span>
-          <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ Winterklaar</span>
-          <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ 10% webshop korting</span>
-          <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ Priority support</span>
+      <div class="pool-header-content" style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:28px;margin-bottom:6px">My Pool — Familie Janssens</h2>
+          <p style="opacity:.7;font-size:14px">Poolforce Premium 10×4m &middot; Borgloon &middot; Geplaatst mei 2024 &middot; <span style="background:rgba(39,174,96,.3);padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600">Alles OK</span></p>
+        </div>
+        <div style="text-align:right;opacity:.8;font-size:12px">
+          <div>Laatste sync: vandaag 14:32</div>
+          <div style="margin-top:4px">Contract: <strong>Premium</strong> &middot; Geldig tot 31/12/2026</div>
         </div>
       </div>
     </div>
+
+    <!-- Pool Photo with live badges -->
+    <div class="pool-hero-img">
+      <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=1400&q=80" alt="Zwembad Familie Janssens">
+      <div class="pool-badge-row">
+        <div class="pool-badge" style="color:var(--green)">● Live</div>
+        <div class="pool-badge">🌡 28.5°C</div>
+        <div class="pool-badge">💧 pH 7.2</div>
+        <div class="pool-badge">☀️ Zonnepanelen actief</div>
+      </div>
+      <div class="pool-hero-overlay">
+        <div>
+          <div class="pool-name">Poolforce Monobloc Premium — 10 × 4 × 1.5m</div>
+          <div class="pool-meta">Volume: 60.000L &middot; Liner: lichtgrijs &middot; Warmtepomp Fairland IPHCR26 &middot; Zoutelectrolyse &middot; LED RGB &middot; Rolluik automatisch</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="pool-tabs">
+      <div class="pool-tab active" onclick="showPoolTab('live')">Live Status</div>
+      <div class="pool-tab" onclick="showPoolTab('domotica')">Domotica</div>
+      <div class="pool-tab" onclick="showPoolTab('kosten')">Kosten & CO₂</div>
+      <div class="pool-tab" onclick="showPoolTab('onderhoud')">Onderhoud</div>
+      <div class="pool-tab" onclick="showPoolTab('afspraak')">Afspraak</div>
+      <div class="pool-tab" onclick="showPoolTab('documenten')">Documenten</div>
+    </div>
+
+    <!-- ═══ TAB: LIVE STATUS ═══ -->
+    <div class="pool-tab-content active" id="ptab-live">
+
+      <!-- 8 Live Stat Cards -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px">
+        <div class="stat-card">
+          <div class="stat-icon">🌡️</div>
+          <div class="stat-value status-ok">28.5°C</div>
+          <div class="stat-label">Watertemperatuur</div>
+          <div class="stat-sub">Doelwaarde: 28°C</div>
+          <div class="stat-trend" style="color:var(--green)">▲ 0.3°C sinds gisteren</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💧</div>
+          <div class="stat-value status-ok">7.2</div>
+          <div class="stat-label">pH-waarde</div>
+          <div class="stat-sub">Ideaal: 7.0 – 7.4</div>
+          <div class="stat-trend" style="color:var(--green)">Stabiel sinds 3 dagen</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🧪</div>
+          <div class="stat-value status-ok">1.2 ppm</div>
+          <div class="stat-label">Vrij chloor</div>
+          <div class="stat-sub">Ideaal: 1.0 – 3.0 ppm</div>
+          <div class="stat-trend" style="color:var(--green)">Zoutcel produceert normaal</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-value status-ok">ORP 720</div>
+          <div class="stat-label">Redoxwaarde (mV)</div>
+          <div class="stat-sub">Ideaal: 650 – 750 mV</div>
+          <div class="stat-trend" style="color:var(--green)">Desinfectie optimaal</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🔄</div>
+          <div class="stat-value status-ok">Actief</div>
+          <div class="stat-label">Filtratie</div>
+          <div class="stat-sub">Cyclus 3/4 — nog 2u12</div>
+          <div class="stat-trend" style="color:var(--green)">Druk filter: 0.8 bar (OK)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🌊</div>
+          <div class="stat-value status-ok">Normaal</div>
+          <div class="stat-label">Waterniveau</div>
+          <div class="stat-sub">Skimmer: +2cm</div>
+          <div class="stat-trend" style="color:var(--green)">Automatische bijvulling uit</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🤖</div>
+          <div class="stat-value" style="color:var(--accent);font-size:22px">Dolphin M600</div>
+          <div class="stat-label">Robotreiniger</div>
+          <div class="stat-sub">Laatste run: gisteren 06:00</div>
+          <div class="stat-trend" style="color:var(--green)">Volgende: morgen 06:00</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🛡️</div>
+          <div class="stat-value status-ok">Gesloten</div>
+          <div class="stat-label">Rolluik</div>
+          <div class="stat-sub">Automatisch na 20:00</div>
+          <div class="stat-trend" style="color:var(--green)">Zonnewinst vandaag: +1.8°C</div>
+        </div>
+      </div>
+
+      <!-- Water Quality History Chart -->
+      <div class="dash-card" style="margin-bottom:24px">
+        <h3>📊 Waterkwaliteit — Laatste 7 dagen</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+          <div>
+            <div style="font-size:11px;font-weight:600;color:var(--gray);margin-bottom:8px;letter-spacing:.5px">pH-VERLOOP</div>
+            <div class="mini-chart">
+              <div class="bar" style="height:65%;background:var(--green)"></div>
+              <div class="bar" style="height:70%;background:var(--green)"></div>
+              <div class="bar" style="height:68%;background:var(--green)"></div>
+              <div class="bar" style="height:72%;background:var(--green)"></div>
+              <div class="bar" style="height:67%;background:var(--green)"></div>
+              <div class="bar" style="height:71%;background:var(--green)"></div>
+              <div class="bar" style="height:69%;background:var(--green)"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--gray);margin-top:4px"><span>Ma</span><span>Di</span><span>Wo</span><span>Do</span><span>Vr</span><span>Za</span><span>Zo</span></div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:600;color:var(--gray);margin-bottom:8px;letter-spacing:.5px">TEMPERATUUR (°C)</div>
+            <div class="mini-chart">
+              <div class="bar" style="height:55%;background:var(--accent)"></div>
+              <div class="bar" style="height:60%;background:var(--accent)"></div>
+              <div class="bar" style="height:72%;background:var(--accent)"></div>
+              <div class="bar" style="height:80%;background:var(--accent)"></div>
+              <div class="bar" style="height:78%;background:var(--accent)"></div>
+              <div class="bar" style="height:82%;background:var(--accent)"></div>
+              <div class="bar" style="height:85%;background:var(--accent)"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--gray);margin-top:4px"><span>Ma</span><span>Di</span><span>Wo</span><span>Do</span><span>Vr</span><span>Za</span><span>Zo</span></div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:600;color:var(--gray);margin-bottom:8px;letter-spacing:.5px">ENERGIEVERBRUIK (kWh)</div>
+            <div class="mini-chart">
+              <div class="bar" style="height:45%;background:var(--gold)"></div>
+              <div class="bar" style="height:50%;background:var(--gold)"></div>
+              <div class="bar" style="height:38%;background:var(--gold)"></div>
+              <div class="bar" style="height:42%;background:var(--gold)"></div>
+              <div class="bar" style="height:55%;background:var(--gold)"></div>
+              <div class="bar" style="height:48%;background:var(--gold)"></div>
+              <div class="bar" style="height:40%;background:var(--gold)"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--gray);margin-top:4px"><span>Ma</span><span>Di</span><span>Wo</span><span>Do</span><span>Vr</span><span>Za</span><span>Zo</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alerts -->
+      <div class="dash-card" style="margin-bottom:24px">
+        <h3>🔔 Meldingen</h3>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:#e8f5e9;border-radius:10px;font-size:13px">
+            <span style="font-size:18px">✅</span>
+            <div><strong>Waterkwaliteit uitstekend</strong> — Alle parameters binnen norm <span style="color:var(--gray);font-size:11px">&middot; vandaag 14:32</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:#fff3e0;border-radius:10px;font-size:13px">
+            <span style="font-size:18px">⚠️</span>
+            <div><strong>Filterzand vervanging</strong> — Aanbevolen binnen 2 maanden (laatste: mei 2024) <span style="color:var(--gray);font-size:11px">&middot; gisteren</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:#e3f2fd;border-radius:10px;font-size:13px">
+            <span style="font-size:18px">ℹ️</span>
+            <div><strong>Seizoensopstart gepland</strong> — 15 april 2026, technicus Tom bevestigd <span style="color:var(--gray);font-size:11px">&middot; 3 dagen geleden</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB: DOMOTICA ═══ -->
+    <div class="pool-tab-content" id="ptab-domotica">
+
+      <div style="margin-bottom:20px;padding:16px;background:linear-gradient(135deg,rgba(27,107,147,.08),rgba(201,168,76,.06));border-radius:14px;display:flex;align-items:center;gap:14px">
+        <span style="font-size:28px">🏠</span>
+        <div>
+          <div style="font-size:14px;font-weight:700;color:var(--primary)">Loxone Miniserver — Verbonden</div>
+          <div style="font-size:12px;color:var(--gray)">14 apparaten online &middot; Laatste heartbeat: 2 min geleden &middot; Firmware: 14.3.12.8</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:15px;color:var(--primary);margin-bottom:14px;font-weight:600">Apparaten & Bediening</h3>
+      <div class="domo-grid">
+        <div class="domo-card">
+          <div class="domo-icon" style="background:#e3f2fd">🔄</div>
+          <div class="domo-info">
+            <div class="domo-name">Filterpomp Pentair</div>
+            <div class="domo-status">Draait op snelheid 2/3 &middot; 0.45 kW</div>
+          </div>
+          <div class="domo-toggle on" onclick="this.classList.toggle('on');this.classList.toggle('off')"></div>
+        </div>
+        <div class="domo-card">
+          <div class="domo-icon" style="background:#fce4ec">🌡️</div>
+          <div class="domo-info">
+            <div class="domo-name">Warmtepomp Fairland</div>
+            <div class="domo-status">Verwarmt — doel 28°C &middot; COP 6.2</div>
+          </div>
+          <div class="domo-toggle on" onclick="this.classList.toggle('on');this.classList.toggle('off')"></div>
+        </div>
+        <div class="domo-card">
+          <div class="domo-icon" style="background:#e8f5e9">🧂</div>
+          <div class="domo-info">
+            <div class="domo-name">Zoutelectrolyse</div>
+            <div class="domo-status">Productie: 70% &middot; Zoutniveau: 3.2 g/L</div>
+          </div>
+          <div class="domo-toggle on" onclick="this.classList.toggle('on');this.classList.toggle('off')"></div>
+        </div>
+        <div class="domo-card">
+          <div class="domo-icon" style="background:#f3e5f5">💡</div>
+          <div class="domo-info">
+            <div class="domo-name">LED Onderwaterverlichting</div>
+            <div class="domo-status">Kleur: Warm wit &middot; Dimmer: 60%</div>
+            <input type="range" class="domo-slider" value="60" min="0" max="100" style="margin-top:6px">
+          </div>
+          <div class="domo-toggle on" onclick="this.classList.toggle('on');this.classList.toggle('off')"></div>
+        </div>
+        <div class="domo-card">
+          <div class="domo-icon" style="background:#e0f2f1">🛡️</div>
+          <div class="domo-info">
+            <div class="domo-name">Rolluik (automatisch)</div>
+            <div class="domo-status">Status: Gesloten &middot; Volgende opening: 08:00</div>
+          </div>
+          <div style="display:flex;gap:6px">
+            <button style="padding:6px 12px;border:1px solid #d5dce4;border-radius:8px;background:#fff;cursor:pointer;font-size:11px;font-weight:600">▲ Open</button>
+            <button style="padding:6px 12px;border:1px solid #d5dce4;border-radius:8px;background:var(--primary);color:#fff;cursor:pointer;font-size:11px;font-weight:600">▼ Dicht</button>
+          </div>
+        </div>
+        <div class="domo-card">
+          <div class="domo-icon" style="background:#fff8e1">🤖</div>
+          <div class="domo-info">
+            <div class="domo-name">Dolphin M600 Robot</div>
+            <div class="domo-status">In dock &middot; Batterij: 94% &middot; Volgende: morgen 06:00</div>
+          </div>
+          <button style="padding:6px 14px;border:1px solid var(--accent);border-radius:8px;background:#fff;color:var(--accent);cursor:pointer;font-size:11px;font-weight:600">▶ Nu starten</button>
+        </div>
+        <div class="domo-card">
+          <div class="domo-icon" style="background:#e8eaf6">🌊</div>
+          <div class="domo-info">
+            <div class="domo-name">Tegenstroom Badu Jet</div>
+            <div class="domo-status">Uit &middot; Snelheid: 0/5</div>
+          </div>
+          <div class="domo-toggle off" onclick="this.classList.toggle('on');this.classList.toggle('off')"></div>
+        </div>
+        <div class="domo-card">
+          <div class="domo-icon" style="background:#efebe9">🔊</div>
+          <div class="domo-info">
+            <div class="domo-name">Sonos Outdoor Speakers</div>
+            <div class="domo-status">Gepauzeerd &middot; Volume: 35%</div>
+            <input type="range" class="domo-slider" value="35" min="0" max="100" style="margin-top:6px">
+          </div>
+          <div class="domo-toggle off" onclick="this.classList.toggle('on');this.classList.toggle('off')"></div>
+        </div>
+        <div class="domo-card">
+          <div class="domo-icon" style="background:#e0f7fa">📹</div>
+          <div class="domo-info">
+            <div class="domo-name">Beveiligingscamera</div>
+            <div class="domo-status">Opname actief &middot; Bewegingsdetectie: aan</div>
+          </div>
+          <div class="domo-toggle on" onclick="this.classList.toggle('on');this.classList.toggle('off')"></div>
+        </div>
+      </div>
+
+      <!-- Scenes -->
+      <h3 style="font-size:15px;color:var(--primary);margin-bottom:14px;font-weight:600">Scenes</h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px">
+        <div style="padding:18px;background:linear-gradient(135deg,#1b6b93,#0f2b3c);border-radius:14px;text-align:center;cursor:pointer;color:#fff">
+          <div style="font-size:24px;margin-bottom:6px">☀️</div>
+          <div style="font-size:12px;font-weight:600">Ochtend</div>
+          <div style="font-size:10px;opacity:.7">Rolluik open, pomp aan, 26°C</div>
+        </div>
+        <div style="padding:18px;background:linear-gradient(135deg,#e67e22,#d35400);border-radius:14px;text-align:center;cursor:pointer;color:#fff">
+          <div style="font-size:24px;margin-bottom:6px">🏊</div>
+          <div style="font-size:12px;font-weight:600">Zwemmen</div>
+          <div style="font-size:10px;opacity:.7">28°C, verlichting aan, tegenstroom</div>
+        </div>
+        <div style="padding:18px;background:linear-gradient(135deg,#8e44ad,#6c3483);border-radius:14px;text-align:center;cursor:pointer;color:#fff">
+          <div style="font-size:24px;margin-bottom:6px">🌙</div>
+          <div style="font-size:12px;font-weight:600">Avond</div>
+          <div style="font-size:10px;opacity:.7">LED blauw, muziek, rolluik open</div>
+        </div>
+        <div style="padding:18px;background:linear-gradient(135deg,#2c3e50,#1a252f);border-radius:14px;text-align:center;cursor:pointer;color:#fff">
+          <div style="font-size:24px;margin-bottom:6px">🌨️</div>
+          <div style="font-size:12px;font-weight:600">Afwezig</div>
+          <div style="font-size:10px;opacity:.7">Alles uit, rolluik dicht, camera aan</div>
+        </div>
+      </div>
+
+      <!-- Automations -->
+      <div class="dash-card">
+        <h3>⚙️ Actieve Automatiseringen</h3>
+        <table>
+          <tr><td style="font-weight:600">Filtratie schema</td><td>4× per dag, 3u per cyclus (06:00, 11:00, 16:00, 21:00)</td><td><span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">Actief</span></td></tr>
+          <tr><td style="font-weight:600">Rolluik zonsondergang</td><td>Automatisch sluiten 30 min na zonsondergang</td><td><span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">Actief</span></td></tr>
+          <tr><td style="font-weight:600">Warmtepomp eco-modus</td><td>Alleen draaien bij zonnepaneel-overschot (>1.5 kW)</td><td><span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">Actief</span></td></tr>
+          <tr><td style="font-weight:600">Robot schema</td><td>Elke 2 dagen om 06:00, extra na regen (>5mm)</td><td><span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">Actief</span></td></tr>
+          <tr><td style="font-weight:600">Vorstbescherming</td><td>Pomp aan als watertemp < 4°C</td><td><span class="tag" style="background:#f5f5f5;color:#666">Standby (winter)</span></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══ TAB: KOSTEN & CO2 ═══ -->
+    <div class="pool-tab-content" id="ptab-kosten">
+
+      <!-- Eco Score -->
+      <div class="eco-score">
+        <div class="eco-icon">🌿</div>
+        <div class="eco-info" style="flex:1">
+          <h4>Eco-Score: A (87/100)</h4>
+          <p>Uw zwembad is 43% energiezuiniger dan het Belgisch gemiddelde dankzij warmtepomp + zonnepanelen + rolluik</p>
+        </div>
+        <div style="text-align:center;padding:8px 16px;background:rgba(27,174,96,.15);border-radius:12px">
+          <div style="font-size:24px;font-weight:800;color:#1b5e20">−1.2 ton</div>
+          <div style="font-size:10px;color:#2e7d32;font-weight:600">CO₂/jaar bespaard</div>
+        </div>
+      </div>
+
+      <div class="cost-grid">
+        <!-- Electricity -->
+        <div class="cost-card">
+          <h4>⚡ Elektriciteit — deze maand</h4>
+          <div class="cost-row"><span class="cost-label">Warmtepomp</span><span class="cost-val">142 kWh — €39,76</span></div>
+          <div class="cost-row"><span class="cost-label">Filterpomp</span><span class="cost-val">86 kWh — €24,08</span></div>
+          <div class="cost-row"><span class="cost-label">Verlichting & overige</span><span class="cost-val">12 kWh — €3,36</span></div>
+          <div class="cost-row"><span class="cost-label">Robotreiniger</span><span class="cost-val">8 kWh — €2,24</span></div>
+          <div class="cost-row" style="border-top:2px solid var(--primary);padding-top:10px;margin-top:4px"><span class="cost-label" style="font-weight:700;color:var(--primary)">Totaal bruto</span><span class="cost-val">248 kWh — €69,44</span></div>
+          <div class="cost-row" style="background:#e8f5e9;border-radius:8px;padding:8px 12px;margin-top:4px"><span class="cost-label" style="color:#2e7d32;font-weight:600">Zonnepanelen opbrengst</span><span class="cost-val" style="color:#2e7d32">−164 kWh — −€45,92</span></div>
+          <div class="cost-row"><span class="cost-label" style="font-weight:800;color:var(--primary);font-size:15px">Netto kost</span><span class="cost-val" style="font-size:15px;color:var(--green)">€23,52</span></div>
+        </div>
+
+        <!-- Water -->
+        <div class="cost-card">
+          <h4>💧 Water — dit jaar</h4>
+          <div class="cost-row"><span class="cost-label">Vulling (mei)</span><span class="cost-val">60 m³ — €312,00</span></div>
+          <div class="cost-row"><span class="cost-label">Bijvulling (verdamping)</span><span class="cost-val">~8 m³ — €41,60</span></div>
+          <div class="cost-row"><span class="cost-label">Spoeling filter</span><span class="cost-val">~3 m³ — €15,60</span></div>
+          <div class="cost-row" style="border-top:2px solid var(--primary);padding-top:10px;margin-top:4px"><span class="cost-label" style="font-weight:700;color:var(--primary)">Totaal water 2026</span><span class="cost-val">71 m³ — €369,20</span></div>
+          <div style="margin-top:10px;padding:8px 12px;background:#e3f2fd;border-radius:8px;font-size:11px;color:#1565c0">
+            💡 Tip: een regenwateraansluiting bespaart ~€200/jaar. <a href="#" style="color:#1565c0;text-decoration:underline">Meer info</a>
+          </div>
+        </div>
+
+        <!-- Chemicals -->
+        <div class="cost-card">
+          <h4>🧪 Chemicaliën — dit seizoen</h4>
+          <div class="cost-row"><span class="cost-label">Zwembadzout (200kg)</span><span class="cost-val">€48,00</span></div>
+          <div class="cost-row"><span class="cost-label">pH-min poeder (5kg)</span><span class="cost-val">€19,50</span></div>
+          <div class="cost-row"><span class="cost-label">Vlokmiddel</span><span class="cost-val">€12,90</span></div>
+          <div class="cost-row"><span class="cost-label">Teststrips (3×)</span><span class="cost-val">€22,50</span></div>
+          <div class="cost-row" style="border-top:2px solid var(--primary);padding-top:10px"><span class="cost-label" style="font-weight:700;color:var(--primary)">Totaal chemie 2026</span><span class="cost-val">€102,90</span></div>
+          <div style="margin-top:10px">
+            <button style="width:100%;padding:10px;background:var(--primary);color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:600;font-size:12px">🛒 Nabestellen via webshop — 10% korting</button>
+          </div>
+        </div>
+
+        <!-- Yearly Summary -->
+        <div class="cost-card">
+          <h4>📊 Jaaroverzicht 2026 (prognose)</h4>
+          <div class="cost-row"><span class="cost-label">Elektriciteit (netto)</span><span class="cost-val">€282 <span style="color:var(--green);font-size:11px">↓32%</span></span></div>
+          <div class="cost-row"><span class="cost-label">Water</span><span class="cost-val">€369</span></div>
+          <div class="cost-row"><span class="cost-label">Chemicaliën</span><span class="cost-val">€103</span></div>
+          <div class="cost-row"><span class="cost-label">Onderhoudscontract Premium</span><span class="cost-val">€890</span></div>
+          <div class="cost-row" style="border-top:2px solid var(--primary);padding-top:10px"><span class="cost-label" style="font-weight:800;color:var(--primary);font-size:14px">Totale jaarkost</span><span class="cost-val" style="font-size:14px">€1.644</span></div>
+          <div style="margin-top:10px;padding:10px;background:#e8f5e9;border-radius:8px;font-size:12px;color:#1b5e20">
+            <strong>Vergelijking:</strong> Belgisch gemiddelde voor een 10×4m zwembad = €2.850/jaar. U bespaart <strong>€1.206/jaar</strong> (42%) dankzij zonnepanelen en efficiënte apparatuur.
+          </div>
+        </div>
+      </div>
+
+      <!-- CO2 Breakdown -->
+      <div class="dash-card">
+        <h3>🌍 CO₂-voetafdruk</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;text-align:center">
+          <div>
+            <div style="font-size:32px;font-weight:800;color:var(--primary)">0.8 ton</div>
+            <div style="font-size:12px;color:var(--gray)">Uw CO₂ uitstoot/jaar</div>
+            <div style="height:8px;background:#e8ecf1;border-radius:4px;margin-top:8px"><div style="width:28%;height:100%;background:var(--green);border-radius:4px"></div></div>
+          </div>
+          <div>
+            <div style="font-size:32px;font-weight:800;color:var(--red)">2.0 ton</div>
+            <div style="font-size:12px;color:var(--gray)">Belgisch gemiddelde</div>
+            <div style="height:8px;background:#e8ecf1;border-radius:4px;margin-top:8px"><div style="width:70%;height:100%;background:var(--red);border-radius:4px"></div></div>
+          </div>
+          <div>
+            <div style="font-size:32px;font-weight:800;color:var(--green)">−1.2 ton</div>
+            <div style="font-size:12px;color:var(--gray)">Uw besparing</div>
+            <div style="height:8px;background:#e8ecf1;border-radius:4px;margin-top:8px"><div style="width:100%;height:100%;background:var(--green);border-radius:4px"></div></div>
+          </div>
+        </div>
+        <div style="margin-top:16px;font-size:12px;color:var(--gray);text-align:center">Equivalent van 6.000 km minder rijden of 60 bomen planten per jaar</div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB: ONDERHOUD ═══ -->
+    <div class="pool-tab-content" id="ptab-onderhoud">
+
+      <div class="grid2" style="margin-bottom:24px">
+        <!-- Contract Info -->
+        <div class="dash-card">
+          <h3>📋 Uw contract: Premium Onderhoud</h3>
+          <p style="font-size:13px;color:#666;margin-bottom:14px">Geldig tot 31/12/2026 &middot; Automatische verlenging &middot; €890/jaar</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+            <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ Seizoensopstart</span>
+            <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ Wateranalyses (4×)</span>
+            <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ Winterklaarmaak</span>
+            <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ 10% webshop korting</span>
+            <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ Priority support</span>
+            <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32">✓ Spoedservice 24u</span>
+          </div>
+          <div style="padding:10px;background:var(--light);border-radius:10px;font-size:12px;color:var(--gray)">
+            Upgrade naar <strong>VIP Luxury</strong> voor wekelijkse analyses, chemicaliën inbegrepen en jaarlijkse technische inspectie. <a href="#" style="color:var(--accent)">Vergelijk pakketten →</a>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="dash-card">
+          <h3>📈 Onderhoud in cijfers</h3>
+          <div class="cost-row"><span class="cost-label">Laatste bezoek</span><span class="cost-val">12 maart 2026</span></div>
+          <div class="cost-row"><span class="cost-label">Bezoeken dit jaar</span><span class="cost-val">2 van 6</span></div>
+          <div class="cost-row"><span class="cost-label">Gemiddelde responstijd</span><span class="cost-val" style="color:var(--green)">4,2 uur</span></div>
+          <div class="cost-row"><span class="cost-label">Filterzand levensduur</span><span class="cost-val" style="color:var(--orange)">22 maanden (vervang mei)</span></div>
+          <div class="cost-row"><span class="cost-label">Zoutcel levensduur</span><span class="cost-val" style="color:var(--green)">~3500 uren resterend</span></div>
+          <div class="cost-row"><span class="cost-label">Liner levensduur</span><span class="cost-val" style="color:var(--green)">~8 jaar resterend</span></div>
+        </div>
+      </div>
+
+      <!-- Maintenance Timeline -->
+      <div class="dash-card" style="margin-bottom:24px">
+        <h3>🗓️ Onderhoudskalender 2026</h3>
+        <div class="maint-timeline">
+          <div class="maint-item done">
+            <div class="maint-date">15 JAN 2026</div>
+            <div class="maint-title">Winterinspectie</div>
+            <div class="maint-desc">Rolluik, vorstbeveiliging, technische ruimte gecontroleerd. Alles OK. <a href="#" style="color:var(--accent)">Rapport bekijken</a></div>
+          </div>
+          <div class="maint-item done">
+            <div class="maint-date">12 MAR 2026</div>
+            <div class="maint-title">Wateranalyse #1</div>
+            <div class="maint-desc">pH 7.3, chloor 1.1 ppm, alkaliniteit 90 ppm, TDS 1200. Geen actie nodig. <a href="#" style="color:var(--accent)">Rapport bekijken</a></div>
+          </div>
+          <div class="maint-item upcoming" style="background:rgba(27,107,147,.04);border-radius:10px;padding:12px 12px 12px 20px">
+            <div class="maint-date" style="color:var(--accent)">15 APR 2026 — VOLGENDE</div>
+            <div class="maint-title">Seizoensopstart</div>
+            <div class="maint-desc">Volledige opstart: rolluik openen, water testen, pompen controleren, chemie doseren, robot kalibreren. Technicus: Tom. Geschatte duur: 2 uur.</div>
+          </div>
+          <div class="maint-item upcoming">
+            <div class="maint-date">15 JUN 2026</div>
+            <div class="maint-title">Wateranalyse #2 + Filterzand vervanging</div>
+            <div class="maint-desc">Standaard wateranalyse + vervanging filterzand (24 maanden overschreden). Geschatte kost filterzand: €85.</div>
+          </div>
+          <div class="maint-item upcoming">
+            <div class="maint-date">15 AUG 2026</div>
+            <div class="maint-title">Wateranalyse #3 — Piekseizoen check</div>
+            <div class="maint-desc">Extra aandacht voor zwaar gebruik zomerperiode, stabilisator-niveau controle.</div>
+          </div>
+          <div class="maint-item upcoming">
+            <div class="maint-date">15 OKT 2026</div>
+            <div class="maint-title">Winterklaarmaak</div>
+            <div class="maint-desc">Waterpeil verlagen, leidingen leegblazen, winterchemie toevoegen, rolluik sluiten, vorstbeveiliging activeren.</div>
+          </div>
+          <div class="maint-item upcoming">
+            <div class="maint-date">15 DEC 2026</div>
+            <div class="maint-title">Wateranalyse #4 — Wintercontrole</div>
+            <div class="maint-desc">Winterchemie controleren, rolluik inspectie, technische ruimte check.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Component Lifespan -->
+      <div class="dash-card">
+        <h3>🔧 Levensduur componenten</h3>
+        <table>
+          <thead><tr><th>Component</th><th>Geplaatst</th><th>Levensduur</th><th>Status</th><th>Vervangen</th></tr></thead>
+          <tr><td>Filterzand (25kg)</td><td>Mei 2024</td><td>2 jaar</td><td><span style="color:var(--orange);font-weight:600">Binnenkort</span></td><td>Juni 2026</td></tr>
+          <tr><td>Zoutcel</td><td>Mei 2024</td><td>5-7 jaar</td><td><span style="color:var(--green);font-weight:600">OK</span></td><td>~2030</td></tr>
+          <tr><td>Liner (lichtgrijs)</td><td>Mei 2024</td><td>10 jaar</td><td><span style="color:var(--green);font-weight:600">OK</span></td><td>~2034</td></tr>
+          <tr><td>Warmtepomp compressor</td><td>Mei 2024</td><td>10-15 jaar</td><td><span style="color:var(--green);font-weight:600">OK</span></td><td>~2036</td></tr>
+          <tr><td>LED-spots (4×)</td><td>Mei 2024</td><td>50.000 uur</td><td><span style="color:var(--green);font-weight:600">OK</span></td><td>~2035</td></tr>
+          <tr><td>O-ringen & afdichtingen</td><td>Mei 2024</td><td>3-5 jaar</td><td><span style="color:var(--green);font-weight:600">OK</span></td><td>~2027</td></tr>
+          <tr><td>Rolluikmotor</td><td>Mei 2024</td><td>8-10 jaar</td><td><span style="color:var(--green);font-weight:600">OK</span></td><td>~2033</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══ TAB: AFSPRAAK ═══ -->
+    <div class="pool-tab-content" id="ptab-afspraak">
+
+      <div class="grid2" style="margin-bottom:24px">
+        <div class="dash-card">
+          <h3>📅 Afspraak inplannen</h3>
+          <p style="font-size:13px;color:#666;margin-bottom:16px">Kies een type dienst en een beschikbaar moment.</p>
+
+          <div style="margin-bottom:16px">
+            <label style="display:block;font-size:12px;font-weight:600;color:var(--primary);margin-bottom:6px;letter-spacing:.5px">Type dienst</label>
+            <select style="width:100%;padding:12px 16px;border:1px solid #d5dce4;border-radius:var(--radius);font-size:14px;background:var(--light)">
+              <option>Wateranalyse (inbegrepen in contract)</option>
+              <option>Seizoensopstart (inbegrepen)</option>
+              <option>Winterklaarmaak (inbegrepen)</option>
+              <option>Filterzand vervanging (€85)</option>
+              <option>Technische inspectie (€120)</option>
+              <option>Liner reparatie (op offerte)</option>
+              <option>Warmtepomp service (€95)</option>
+              <option>Spoedinterventie (€75 voorrijkosten)</option>
+              <option>Adviesgesprek renovatie/upgrade</option>
+              <option>Anders — bel ons</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom:16px">
+            <label style="display:block;font-size:12px;font-weight:600;color:var(--primary);margin-bottom:6px;letter-spacing:.5px">Beschikbare momenten — week 16 (14-18 april)</label>
+            <div class="booking-slots">
+              <div class="booking-slot" onclick="document.querySelectorAll('.booking-slot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">
+                <div class="slot-day">Maandag</div>
+                <div class="slot-date">14 april</div>
+                <div class="slot-time">09:00 – 11:00</div>
+              </div>
+              <div class="booking-slot selected" onclick="document.querySelectorAll('.booking-slot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">
+                <div class="slot-day">Dinsdag</div>
+                <div class="slot-date">15 april</div>
+                <div class="slot-time">09:00 – 11:00</div>
+              </div>
+              <div class="booking-slot" onclick="document.querySelectorAll('.booking-slot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">
+                <div class="slot-day">Dinsdag</div>
+                <div class="slot-date">15 april</div>
+                <div class="slot-time">14:00 – 16:00</div>
+              </div>
+              <div class="booking-slot" onclick="document.querySelectorAll('.booking-slot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">
+                <div class="slot-day">Woensdag</div>
+                <div class="slot-date">16 april</div>
+                <div class="slot-time">10:00 – 12:00</div>
+              </div>
+              <div class="booking-slot" onclick="document.querySelectorAll('.booking-slot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">
+                <div class="slot-day">Donderdag</div>
+                <div class="slot-date">17 april</div>
+                <div class="slot-time">09:00 – 11:00</div>
+              </div>
+              <div class="booking-slot" onclick="document.querySelectorAll('.booking-slot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">
+                <div class="slot-day">Vrijdag</div>
+                <div class="slot-date">18 april</div>
+                <div class="slot-time">13:00 – 15:00</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:16px">
+            <label style="display:block;font-size:12px;font-weight:600;color:var(--primary);margin-bottom:6px;letter-spacing:.5px">Opmerkingen (optioneel)</label>
+            <textarea style="width:100%;padding:12px 16px;border:1px solid #d5dce4;border-radius:var(--radius);font-size:14px;background:var(--light);height:80px;resize:vertical;font-family:inherit" placeholder="Beschrijf eventuele problemen of specifieke wensen..."></textarea>
+          </div>
+
+          <button class="btn-gold" style="width:100%;border:none;font-size:14px;padding:14px;cursor:pointer;border-radius:12px">Afspraak bevestigen →</button>
+        </div>
+
+        <!-- Upcoming Appointments -->
+        <div>
+          <div class="dash-card" style="margin-bottom:16px">
+            <h3>📌 Geplande afspraken</h3>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="padding:14px;border:2px solid var(--green);border-radius:12px;background:rgba(39,174,96,.04)">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div>
+                    <div style="font-size:13px;font-weight:700;color:var(--primary)">Seizoensopstart</div>
+                    <div style="font-size:12px;color:var(--gray)">Di 15 april 2026 &middot; 09:00 – 11:00</div>
+                    <div style="font-size:11px;color:var(--gray);margin-top:2px">Technicus: Tom Van Hees</div>
+                  </div>
+                  <span class="tag tag-green" style="background:#e8f5e9;color:#2e7d32;font-size:11px;padding:4px 10px;border-radius:8px">Bevestigd</span>
+                </div>
+              </div>
+              <div style="padding:14px;border:1px solid #e0e4ea;border-radius:12px">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div>
+                    <div style="font-size:13px;font-weight:700;color:var(--primary)">Wateranalyse #2 + Filterzand</div>
+                    <div style="font-size:12px;color:var(--gray)">Ma 15 juni 2026 &middot; Tijd nog te bepalen</div>
+                  </div>
+                  <span class="tag" style="background:#fff3e0;color:#e65100;font-size:11px;padding:4px 10px;border-radius:8px">Nog te plannen</span>
+                </div>
+              </div>
+              <div style="padding:14px;border:1px solid #e0e4ea;border-radius:12px">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div>
+                    <div style="font-size:13px;font-weight:700;color:var(--primary)">Winterklaarmaak</div>
+                    <div style="font-size:12px;color:var(--gray)">Wo 15 oktober 2026 &middot; Tijd nog te bepalen</div>
+                  </div>
+                  <span class="tag" style="background:#f5f5f5;color:#666;font-size:11px;padding:4px 10px;border-radius:8px">Automatisch</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <h3>☎️ Spoedlijn</h3>
+            <p style="font-size:13px;color:var(--gray);margin-bottom:12px">Probleem buiten kantooruren? Bel de spoedlijn (inbegrepen in Premium).</p>
+            <a href="tel:048594451" style="display:block;padding:14px;background:var(--primary);color:#fff;text-align:center;border-radius:12px;font-weight:700;font-size:14px">
+              📞 0485 94 45 10 — Spoedlijn
+            </a>
+            <div style="font-size:11px;color:var(--gray);text-align:center;margin-top:6px">Ma-Zo, 07:00 – 22:00 &middot; Responstijd < 4 uur</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB: DOCUMENTEN ═══ -->
+    <div class="pool-tab-content" id="ptab-documenten">
+      <div class="grid2" style="margin-bottom:24px">
+        <div class="dash-card">
+          <h3>📁 Uw projectdossier</h3>
+          <table>
+            <thead><tr><th>Document</th><th>Type</th><th>Datum</th><th></th></tr></thead>
+            <tr><td>Offerte Premium 10×4m</td><td>PDF</td><td>12/02/2024</td><td><a href="#" style="color:var(--accent)">Bekijken</a></td></tr>
+            <tr><td>Ondertekend contract</td><td>PDF</td><td>28/02/2024</td><td><a href="#" style="color:var(--accent)">Bekijken</a></td></tr>
+            <tr><td>Bouwvergunning goedkeuring</td><td>PDF</td><td>15/03/2024</td><td><a href="#" style="color:var(--accent)">Bekijken</a></td></tr>
+            <tr><td>Proces-verbaal oplevering</td><td>PDF</td><td>18/05/2024</td><td><a href="#" style="color:var(--accent)">Bekijken</a></td></tr>
+            <tr><td>AREI-keuringsattest</td><td>PDF</td><td>18/05/2024</td><td><a href="#" style="color:var(--accent)">Bekijken</a></td></tr>
+            <tr><td>Garantiecertificaat Poolforce</td><td>PDF</td><td>18/05/2024</td><td><a href="#" style="color:var(--accent)">Bekijken</a></td></tr>
+            <tr><td>Handleiding warmtepomp Fairland</td><td>PDF</td><td>18/05/2024</td><td><a href="#" style="color:var(--accent)">Bekijken</a></td></tr>
+            <tr><td>Handleiding zoutelectrolyse</td><td>PDF</td><td>18/05/2024</td><td><a href="#" style="color:var(--accent)">Bekijken</a></td></tr>
+            <tr><td>Onderhoudsschema 2026</td><td>PDF</td><td>01/01/2026</td><td><a href="#" style="color:var(--accent)">Bekijken</a></td></tr>
+          </table>
+        </div>
+        <div>
+          <div class="dash-card" style="margin-bottom:16px">
+            <h3>📊 Wateranalyse-rapporten</h3>
+            <table>
+              <thead><tr><th>Datum</th><th>pH</th><th>Cl</th><th>Resultaat</th></tr></thead>
+              <tr><td>12/03/2026</td><td>7.3</td><td>1.1</td><td><span style="color:var(--green);font-weight:600">OK</span></td></tr>
+              <tr><td>15/01/2026</td><td>7.1</td><td>0.8</td><td><span style="color:var(--green);font-weight:600">OK</span></td></tr>
+              <tr><td>14/10/2025</td><td>7.4</td><td>1.5</td><td><span style="color:var(--green);font-weight:600">OK</span></td></tr>
+              <tr><td>12/08/2025</td><td>7.6</td><td>2.1</td><td><span style="color:var(--orange);font-weight:600">pH hoog</span></td></tr>
+              <tr><td>18/05/2025</td><td>7.2</td><td>1.3</td><td><span style="color:var(--green);font-weight:600">OK</span></td></tr>
+            </table>
+          </div>
+          <div class="dash-card">
+            <h3>🏷️ Uw zwembadgegevens</h3>
+            <div class="cost-row"><span class="cost-label">Type kuip</span><span class="cost-val">Poolforce Monobloc Premium</span></div>
+            <div class="cost-row"><span class="cost-label">Afmetingen</span><span class="cost-val">10.0 × 4.0 × 1.5m</span></div>
+            <div class="cost-row"><span class="cost-label">Volume</span><span class="cost-val">60.000 liter</span></div>
+            <div class="cost-row"><span class="cost-label">Liner</span><span class="cost-val">Lichtgrijs, geplaatst mei 2024</span></div>
+            <div class="cost-row"><span class="cost-label">Filtratie</span><span class="cost-val">Zandfilter 22m³/u + Pentair pomp</span></div>
+            <div class="cost-row"><span class="cost-label">Verwarming</span><span class="cost-val">Fairland IPHCR26 warmtepomp</span></div>
+            <div class="cost-row"><span class="cost-label">Desinfectie</span><span class="cost-val">Zoutelectrolyse</span></div>
+            <div class="cost-row"><span class="cost-label">Verlichting</span><span class="cost-val">4× LED RGB spots</span></div>
+            <div class="cost-row"><span class="cost-label">Rolluik</span><span class="cost-val">Automatisch, lamellen solar</span></div>
+            <div class="cost-row"><span class="cost-label">Domotica</span><span class="cost-val">Loxone Miniserver</span></div>
+            <div class="cost-row"><span class="cost-label">Garantie kuip</span><span class="cost-val">10 jaar (tot mei 2034)</span></div>
+            <div class="cost-row"><span class="cost-label">Garantie techniek</span><span class="cost-val">2 jaar (verlopen mei 2026)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -830,6 +1523,15 @@ function showPage(id) {
   if (page) { page.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
   const navLink = document.querySelector(`.topnav li a[onclick*="'${id}'"]`);
   if (navLink) navLink.classList.add('active');
+}
+
+// ── Pool Tab Switching ──
+function showPoolTab(id) {
+  document.querySelectorAll('.pool-tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.pool-tab').forEach(t => t.classList.remove('active'));
+  const tab = document.getElementById('ptab-' + id);
+  if (tab) tab.classList.add('active');
+  event.target.classList.add('active');
 }
 
 // ── Cart notification ──
