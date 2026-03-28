@@ -45,11 +45,74 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--light); co
 }
 .hero h1 em { color: var(--gold); font-style: normal; }
 .hero p { opacity: 0.75; font-size: 15px; max-width: 520px; margin: 0 auto; }
+.hero .update-date {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 6px 20px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* Version History */
+.version-history {
+  max-width: 700px;
+  margin: -16px auto 40px;
+  padding: 0 24px;
+}
+.version-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 28px 32px;
+}
+.version-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+.version-list {
+  list-style: none;
+}
+.version-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+  color: #4b5563;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.version-list li:last-child { border-bottom: none; }
+.version-label {
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+  min-width: 48px;
+}
+.version-date {
+  font-size: 11px;
+  color: #9ca3af;
+  white-space: nowrap;
+  min-width: 110px;
+}
+.version-list li.current {
+  color: var(--primary);
+  font-weight: 500;
+}
+.version-list li.current .version-label {
+  color: var(--gold);
+}
 
 /* Cards */
 .cards {
   max-width: 900px;
-  margin: -30px auto 60px;
+  margin: 0 auto 60px;
   padding: 0 24px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -141,8 +204,46 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--light); co
 <div class="hero">
   <div class="badge">Bedrijvendokter</div>
   <h1><em>Relaxani</em> — Website Previews</h1>
-  <p>V3.2 — Sectienummering, callout-fix, tabelformattering (27 maart 2026)</p>
-  <p style="opacity:0.55; font-size:13px; margin-top:8px;">Mockups ter illustratie van de online aanwezigheid en digitale strategie van Relaxani BV.</p>
+  <p>Businessplan, mockup-websites en interactieve vragenlijst voor Relaxani BV.</p>
+  <div class="update-date">Laatst bijgewerkt: 28 maart 2026</div>
+</div>
+
+<div class="version-history">
+  <div class="version-box">
+    <h3>Versiegeschiedenis</h3>
+    <ul class="version-list">
+      <li class="current">
+        <span class="version-label">V3.2</span>
+        <span class="version-date">28 maart 2026</span>
+        <span>Sectienummering, callout-boxen, tabelformattering</span>
+      </li>
+      <li>
+        <span class="version-label">V3.1</span>
+        <span class="version-date">27 maart 2026</span>
+        <span>Handboek-stijl met TL;DR en actiepunten</span>
+      </li>
+      <li>
+        <span class="version-label">V3.0</span>
+        <span class="version-date">27 maart 2026</span>
+        <span>Volledige herwerking — narratieve stijl</span>
+      </li>
+      <li>
+        <span class="version-label">V2.1</span>
+        <span class="version-date">27 maart 2026</span>
+        <span>Review-correcties (150+ fixes)</span>
+      </li>
+      <li>
+        <span class="version-label">V2.0</span>
+        <span class="version-date">26 maart 2026</span>
+        <span>28 naar 16 hoofdstukken, volledig herschreven</span>
+      </li>
+      <li>
+        <span class="version-label">V1.0</span>
+        <span class="version-date">24 maart 2026</span>
+        <span>Eerste versie</span>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div class="cards">
@@ -150,7 +251,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--light); co
   <a href="Relaxani_Businessplan_Compleet_2026.pdf" class="card" target="_blank">
     <img class="card-img" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=360&fit=crop&q=80" alt="Businessplan PDF">
     <div class="card-body">
-      <span class="card-tag tag-pdf">PDF — 28 hoofdstukken</span>
+      <span class="card-tag tag-pdf">PDF — 16 hoofdstukken</span>
       <h2>Businessplan Relaxani 2026</h2>
       <p>Het volledige businessplan in één PDF: marktanalyse, VIP-strategie, 90-dagen actieplan, financiële projectie en meer.</p>
       <span class="card-cta">Open businessplan</span>
